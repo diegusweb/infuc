@@ -1,10 +1,15 @@
-angular.module('starter.controllers', []).controller('ListCtrl', function($scope, $stateParams, PeopleService, $state) {
+app.controller('ListCtrl', function($scope, $stateParams, PeopleService, $state) {
 	$scope.ser = PeopleService;
 	
 	PeopleService.GetCategory().then(function(cat){
         $scope.todos = cat[$stateParams.id].formulas;
 		$scope.category = $stateParams.id;	
+		$scope.prefs = cat[$stateParams.id].pref;
     });
+
+    $scope.demo2 = function(a){
+    	console.log(a);
+    };
 	
 	$scope.demo = function(id, cat){
 		var name = "";
@@ -27,7 +32,7 @@ angular.module('starter.controllers', []).controller('ListCtrl', function($scope
 	};
 	
 	$scope.selectView = function(view){
-		console.log(view.toLowerCase());
+		console.log("--- "+view.toLowerCase());
 		//$state.go(''+view.toLowerCase()+'/:id/:cat', { id: id, cat: cat});
 		$state.go(''+view.toLowerCase()+'/:info', {info: view.toLowerCase() });
 		

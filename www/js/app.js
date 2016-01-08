@@ -58,6 +58,27 @@ var app = angular.module('starter', ['ionic'])
         }
       }
     })
+    .state('app.list', {
+    url: "/list/:id",
+     views: {
+        'menuContent': {
+          templateUrl: 'templates/form-list.html',
+          controller: 'ListCtrl'
+       }
+     }   
+  })
+
+  .state('app.anestecia_1', {
+    url: "/anestecia_1",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/formulas/anestecia_1.html',
+        controller: 'AnesteciaDopaminaCtrl'
+      }
+    }
+    
+  })
+
 
   .state('app.single', {
     url: '/playlists/:playlistId',
