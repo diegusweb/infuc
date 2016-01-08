@@ -1,0 +1,30 @@
+<style>
+.list .item {
+    border: 1px solid #ccc;
+}
+</style>
+<ion-view title="Categorias">
+ <!--<search-bar ng-model="search"></search-bar>-->
+    <ion-content>
+      <!-- The content of the page -->
+      <ion-list class="list">
+		  
+			  <ion-item class="item" ng-repeat="person in todos" href="#/list/{{$index}}" style="font-size: 20px;">
+				{{person.name}}
+					<span class="badge badge-stable">{{person.formulas.length}}</span>
+			  </ion-item>
+
+      </ion-list>
+	  
+	 <!-- <ion-list class="list condensed-space no-padding animate-blinds done done done done">
+	  
+		  <ion-item class="card balanced-bg in colorTextList" style="transition-delay: 0.13s; font-size: 20px;" ng-repeat="person in todos" href="#/list/{{$index}}">
+			{{person.name}}
+				<span class="badge badge-stable">{{person.formulas.length}}</span>
+		  </ion-item>
+
+      </ion-list>-->
+	  
+	  
+    </ion-content>
+  </ion-view>

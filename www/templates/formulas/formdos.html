@@ -1,0 +1,82 @@
+<style>
+.scroll{height: 100%;}
+
+.form-validate.ng-invalid {
+    border: 3px solid #cc2511;
+}
+.form-validate.ng-valid {
+    border: none;
+}
+
+form input.ng-invalid:not(.ng-pristine) {
+    box-shadow: 0 0 3px red;
+}
+.error-message {
+    padding: 12px;
+    background-color: rgba(255, 133, 0, 0.1);
+    font-weight: bold;
+}
+</style>
+
+<ion-view title="Calcular">
+	<ion-content class="has-header padding">
+	<form name="myForm" novalidate>
+        <div class="list">
+			
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="email" name="username" ng-model="info.username" ng-minlength="5" required>
+            </label>
+            
+			
+			
+			<div class="row">
+			  <div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">densidad</span>
+					<input type="text" placeholder="John" ng-model="info.densidad" ng-minlength="2" required>
+				  </label>
+			  </div>
+			  <div class="col">
+				<label class="item item-input">
+					<span class="input-label">opacidad</span>
+					<input type="number" name="opacidad" ng-model="info.opacidad" ng-minlength="2" required>
+				</label>
+			  </div>
+			</div>
+			
+			<input placeholder="Password"
+           name="pwd" ng-model="thePwd" ng-model-options="{ updateOn: 'blur' }"
+           required type="password" pattern=".{2,}" />
+			<div class="error-message"
+				 ng-show="myForm.password.$invalid && !myForm.password.$pristine">
+				Passwords must have at least 2 chars.
+			</div>
+			
+        </div>
+        <div class="padding">
+            <p ng-show="myForm.username.$error.required">* Username is required</p>
+            <p ng-show="myForm.username.$invalid && !myForm.username.$pristine">* Username must be an email address</p>
+            <p ng-show="myForm.username.$error.minlength">* Username must be longer than 5 characters</p>
+            <p ng-show="myForm.opacidad.$error.required">* opacidad is required</p>
+            <p ng-show="myForm.opacidad.$error.minlength">* opacidad must be longer than 6 characters</p>
+        </div>
+		
+		
+		<div style="position: absolute; bottom: 0px; width: 100%">
+			<div style="border:1px solid #ebebeb;">
+				<div style="background-color:#F1F1F1; padding:5px;">Resultados</div>
+				<div style="padding:5px;">{{resultado}}</div>
+			</div>
+			<div style="text-align: center">
+				<div class="row">
+				  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">Reset</button></div>
+				  <div class="col"><button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(info)">Calcular</button></div>
+				</div>
+			  
+			</div>
+		</div>
+
+    </form>
+      </ion-content>
+</ion-view>	

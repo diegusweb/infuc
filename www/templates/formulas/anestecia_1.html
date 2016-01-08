@@ -1,0 +1,73 @@
+<style>
+.scroll{height: 100%;}
+
+.form-validate.ng-invalid {
+    border: 3px solid #cc2511;
+}
+.form-validate.ng-valid {
+    border: none;
+}
+
+form input.ng-invalid:not(.ng-pristine) {
+    box-shadow: 0 0 3px red;
+}
+.error-message {
+    padding: 12px;
+    background-color: rgba(255, 133, 0, 0.1);
+    font-weight: bold;
+}
+.item-input input {
+    margin: 0 9px 0 0;
+}
+</style>
+
+<ion-view title="Calcular">
+	<ion-content class="has-header padding form-content">
+	<p>La Dopamina viene en  5ml = 200mg</p>
+	<form name="myForm" novalidate>
+        <div class="list___">
+            <label class="item item-input">
+                <input type="number" name="dilusion" placeholder="Ingrese Valor" ng-model="info.dilusion" ng-minlength="1" required>
+				<span class="input-label">Dilusion </span>
+            </label>
+            <label class="item item-input">            
+                <input type="number" name="concentracion" placeholder="Ingrese Valor" ng-model="info.concentracion" ng-minlength="1" required>
+				<span class="input-label">Concentracion</span>
+            </label>
+            <label class="item item-input">            
+                <input type="number" name="peso" placeholder="Ingrese Valor" ng-model="info.peso" ng-minlength="1" required>
+                <span class="input-label">Peso</span>
+            </label>
+            <label class="item item-input">            
+                <input type="number" name="dosis" placeholder="Ingrese Valor" ng-model="info.dosis" ng-minlength="1" required>
+                <input type="number" name="dosis" placeholder="Ingrese Valor" ng-model="info.dosis" ng-minlength="1" required>
+                <span class="input-label">Dosis</span>
+            </label>
+		
+        </div>
+        <div class="padding">
+            <p ng-show="myForm.username.$error.required">* Username is required</p>
+            <p ng-show="myForm.username.$invalid && !myForm.username.$pristine">* Username must be an email address</p>
+            <p ng-show="myForm.username.$error.minlength">* Username must be longer than 5 characters</p>
+            <p ng-show="myForm.opacidad.$error.required">* opacidad is required</p>
+            <p ng-show="myForm.opacidad.$error.minlength">* opacidad must be longer than 6 characters</p>
+        </div>
+		
+		
+		<div style="position: absolute; bottom: 0px; width: 100%">
+			<div style="border:1px solid #ccc; background-color:#fff; ">
+				<div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Resultados</div>
+				<div style="padding:5px;">{{resultado}}</div>
+			</div>
+			<div style="text-align: center">
+				<div class="row">
+				  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
+				  <div class="col"><button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(info)">CALCULATE</button></div>
+				</div>
+			  
+			</div>
+		</div>
+
+    </form>
+      </ion-content>
+</ion-view>	
