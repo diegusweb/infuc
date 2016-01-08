@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Anestesiologia",
+	"pref":"anestecia",
+	"formulas":[
+		{
+			"id":1,
+			"name":"Calculo Gamas Dopamina",
+			"description":"Se multiplica 1mg del medicamento X 1000",
+			"pref":"1"
+		},
+		{
+			"id":2,
+			"name":"Presion arterial media",
+			"description":"Presion arterial media",
+			"pref":"2"
+		},
+		{
+			"id":3,
+			"name":"Noradrenalina",
+			"description":"Noradrenalina",
+			"pref":"3"
+		}
+	]
+    
+  },
+  {
+    "id": 2,
+    "name": "Analgesico",
+	"pref":"Analgesico",
+	"formulas":[
+		{
+			"id":1,
+			"name":"fname1",
+			"description":"",
+			"pref":""
+		}
+	]
+  },
+  {
+    "id": 3,
+    "name": "Antibiotico",
+	"pref":"Antibiotico",
+	"formulas":[
+		{
+			"id":1,
+			"name":"fname14",
+			"description":"",
+			"pref":""
+		},
+		{
+			"id":2,
+			"name":"fname25",
+			"description":"",
+			"pref":""
+		}
+	]
+  },
+  {
+    "id": 4,
+    "name": "Inotropes",
+	"pref":"Inotropes",
+	"formulas":[
+
+	]
+  }
+]  
