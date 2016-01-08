@@ -1,4 +1,4 @@
-app
+angular.module('starter.controllers', [])
 .controller('AnesteciaDopaminaCtrl', function($scope, $stateParams, PeopleService,$location,$ionicPopup) {
 	$scope.info = [];
 	$scope.resultado=0;

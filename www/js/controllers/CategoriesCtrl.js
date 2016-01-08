@@ -1,6 +1,8 @@
-app.controller('CategoriesCtrl', function($scope, $state, PeopleService) {
-	PeopleService.GetCategory().then(function(cat){
-		$scope.todos = cat;			
-	});
+app
+.controller('CategoriesCtrl', function($scope, $state, PeopleService) {
+  console.log("ssss");
+  PeopleService.GetCategory().then(function(cat){
+    $scope.todos = cat;     
+  });
 
 });

@@ -1,4 +1,5 @@
-app.directive('searchBar', [function () {
+app
+.directive('searchBar', [function () {
 	return {
 		scope: {
 			ngModel: '='

@@ -1,4 +1,5 @@
-app.service("PeopleService", function ($http, $q) {
+app
+.service("PeopleService", function ($http, $q) {
     var categories = [];
     this.GetCategory = function () {
 		var deferred = $q.defer();

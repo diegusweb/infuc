@@ -1,4 +1,4 @@
-app.controller('ListCtrl', function($scope, $stateParams, PeopleService, $state) {
+angular.module('starter.controllers', []).controller('ListCtrl', function($scope, $stateParams, PeopleService, $state) {
 	$scope.ser = PeopleService;
 	
 	PeopleService.GetCategory().then(function(cat){
