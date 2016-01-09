@@ -8,24 +8,28 @@
 			"id":1,
 			"name":"Calculo Gamas Dopamina",
 			"description":"Se multiplica 1mg del medicamento X 1000",
+			"status":true,
 			"pref":"1"
 		},
 		{
 			"id":2,
 			"name":"Presion arterial media",
 			"description":"Presion arterial media",
+			"status":true,
 			"pref":"2"
 		},
 		{
 			"id":3,
 			"name":"Noradrenalina",
 			"description":"Noradrenalina",
+			"status":true,
 			"pref":"3"
 		},
 		{
 			"id":4,
 			"name":"Adrenalina",
 			"description":"Noradrenalina",
+			"status":true,
 			"pref":"4"
 		}
 	]
@@ -40,6 +44,7 @@
 			"id":1,
 			"name":"fname1",
 			"description":"",
+			"status":true,
 			"pref":""
 		}
 	]
@@ -53,12 +58,14 @@
 			"id":1,
 			"name":"fname14",
 			"description":"",
+			"status":true,
 			"pref":""
 		},
 		{
 			"id":2,
 			"name":"fname25",
 			"description":"",
+			"status":true,
 			"pref":""
 		}
 	]

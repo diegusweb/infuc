@@ -2,6 +2,9 @@
 .list .item {
     border: 1px solid #ccc;
 }
+.item-complex .item-content, .item-radio .item-content{
+	padding: 16px 49px 16px 16px;
+}
 </style>
 <ion-view title="Categorias">
  <!--<search-bar ng-model="search"></search-bar>-->
@@ -9,7 +12,7 @@
       <!-- The content of the page -->
       <ion-list class="list">
 
-			  <ion-item class="item" ng-repeat="person in todos | orderBy:'name'" href="#/app/list/{{$index}}" style="font-size: 20px;">
+			  <ion-item class="item" ng-repeat="person in todos | orderBy:'name'" href="#/app/list/{{person.id-1}}" style="font-size: 20px;">
 				{{person.name}}
 					<span class="badge badge-stable">{{person.formulas.length}}</span>
 			  </ion-item>
