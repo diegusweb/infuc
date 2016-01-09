@@ -85,8 +85,25 @@ var app = angular.module('starter', ['ionic'])
         templateUrl: 'templates/formulas/anestecia_2.html',
         controller: 'AnesteciaPresionArterialCtrl'
       }
-    }
-    
+    }   
+  })
+  .state('app.anestecia_3', {
+    url: "/anestecia_3",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/formulas/anestecia_3.html',
+        controller: 'AnesteciaNoradrenalinaCtrl'
+      }
+    }   
+  })
+  .state('app.anestecia_4', {
+    url: "/anestecia_4",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/formulas/anestecia_4.html',
+        controller: 'AnesteciaAdrenalinaCtrl'
+      }
+    }   
   })
 
   .state('app.single', {

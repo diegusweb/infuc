@@ -163,6 +163,64 @@ app
 	}
 	
 	
+})
+.controller('AnesteciaNoradrenalinaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
+	$scope.info = [];
+
+	$scope.submit = function(data) {
+		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
+			$scope.showAlert();
+		}*/
+		var peso = parseInt(data.peso);
+		var diluir = parseInt(data.diluir);
+		var ampollas = parseInt(data.ampollas) * 4;
+		var dosis = parseFloat(data.dosis);
+
+		var res1 = (ampollas/diluir) * 1000;
+		var res2 = res1/peso;
+		console.log("res2 "+res2);
+		var res3 = res2/60;  //60min
+		console.log("res3 "+res3);
+		//Y por ultimo te dicen a q dosis quieren darle
+		var res4 = dosis/res3;
+		console.log("dosis "+dosis);
+		console.log("res4 "+res4);
+
+		$scope.resultado = res4;
+	}
+
+	$scope.showAlert = function() {
+	   var alertPopup = $ionicPopup.alert({
+		 title: 'Error En Datos',
+		 template: 'No se permite numeros negativo'
+	   });
+	   alertPopup.then(function(res) {
+		 console.log('Thank you for not eating my delicious ice cream cone');
+	   });
+	 };
+
+	$scope.reset = function(){
+	   var confirmPopup = $ionicPopup.confirm({
+		 title: 'Vaciar Formulario',
+		 template: 'Esta segro que desea borrar los campos llenados?'
+	   });
+	   confirmPopup.then(function(res) {
+		 if(res) {
+
+		   $scope.info.diastolica = null;
+		   $scope.info.sistolica = null;
+		   
+		 } else {
+		   console.log('You are not sure');
+		 }
+	   });
+	};
+
+	function isPositiveInteger(n) {
+	    return parseFloat(n) === n >>> 0;
+	}
+	
+	
 });
 
 
