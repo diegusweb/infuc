@@ -21,6 +21,12 @@
 			"name":"Noradrenalina",
 			"description":"Noradrenalina",
 			"pref":"3"
+		},
+		{
+			"id":4,
+			"name":"Adrenalina",
+			"description":"Noradrenalina",
+			"pref":"4"
 		}
 	]
     
@@ -55,6 +61,38 @@
 			"description":"",
 			"pref":""
 		}
+	]
+  },
+  {
+    "id": 4,
+    "name": "Inotropes",
+	"pref":"Inotropes",
+	"formulas":[
+
+	]
+  },
+  {
+    "id": 5,
+    "name": "Inotropesa",
+	"pref":"Inotropqes",
+	"formulas":[
+
+	]
+  },
+  {
+    "id": 6,
+    "name": "Inotropess",
+	"pref":"Inotrofpes",
+	"formulas":[
+
+	]
+  },
+  {
+    "id": 7,
+    "name": "Inotropeds",
+	"pref":"Inotrdopes",
+	"formulas":[
+
 	]
   },
   {
