@@ -9,7 +9,7 @@
       <!-- The content of the page -->
       <ion-list class="list">
 
-			  <ion-item class="item" ng-repeat="person in todos" href="#/app/list/{{$index}}" style="font-size: 20px;">
+			  <ion-item class="item" ng-repeat="person in todos | orderBy:'name'" href="#/app/list/{{$index}}" style="font-size: 20px;">
 				{{person.name}}
 					<span class="badge badge-stable">{{person.formulas.length}}</span>
 			  </ion-item>

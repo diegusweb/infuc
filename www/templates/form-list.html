@@ -7,7 +7,7 @@
 	<ion-content>
 		<ion-list class="list">
       
-	   <ion-item class="item" ng-repeat="person in todos" href="#/app/{{prefs+'_'+person.pref}}" style="font-size: 20px;">
+	   <ion-item class="item" ng-repeat="person in todos | orderBy:'name'" href="#/app/{{prefs+'_'+person.pref}}" style="font-size: 20px;">
 				{{person.name}}
 				<span class="badge"><i class="icon ion-chevron-right muted"></i></span>
 			</ion-item>
