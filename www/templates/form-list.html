@@ -2,20 +2,23 @@
 .list .item {
     border: 1px solid #ccc;
 }
-.item-complex .item-content, .item-radio .item-content{
-	padding: 16px 49px 4px 69px;
+.cat{
+	padding: 0px 0px 0px 51px;
+}
+.item-complex .item-content, .item-radio .item-content {
+    padding: 16px 49px 6px 16px;
 }
 </style>
 <ion-view title="Lista de Operaciones">
 	<ion-content>
 		<ion-list class="list">
       
-	   <ion-item class="item item-avatar" ng-repeat="person in todos | orderBy:'name'" href="#/app/{{prefs+'_'+person.pref}}" style="font-size: 20px;">
-	   <img src="http://ionicframework.com/img/docs/venkman.jpg">
-	   <h2>{{person.name}}</h2>
-      <p>{{person.description}}</p>
+	   <ion-item class="item item-avatar cat" ng-repeat="person in todos | orderBy:'name'" href="#/app/{{prefs+'_'+person.pref}}">
+			   <img src="http://ionicframework.com/img/docs/venkman.jpg">
+			   <h2 class="cata" style="font-size: 18px !important;" >{{person.name}}</h2>
+		      <p class="cata" style="font-size: 12px !important;" >{{person.description}}</p>
 
-				<span class="badge"><i class="icon ion-chevron-right muted"></i></span>
+				<span class="badge"><i class="icon ion-chevron-right positive"></i></span>
 			</ion-item>
 		  
       </ion-list>

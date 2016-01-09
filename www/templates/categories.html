@@ -2,9 +2,13 @@
 .list .item {
     border: 1px solid #ccc;
 }
-.item-complex .item-content, .item-radio .item-content{
-	padding: 16px 49px 16px 16px;
+.cata{
+	padding: 0px 0px 0px 51px;
 }
+.item-complex .item-content, .item-radio .item-content {
+    padding: 16px 49px 6px 16px;
+}
+
 </style>
 <ion-view title="Categorias">
  <!--<search-bar ng-model="search"></search-bar>-->
@@ -12,9 +16,12 @@
       <!-- The content of the page -->
       <ion-list class="list">
 
-			  <ion-item class="item" ng-repeat="person in todos | orderBy:'name'" href="#/app/list/{{person.id-1}}" style="font-size: 20px;">
-				{{person.name}}
-					<span class="badge badge-stable">{{person.formulas.length}}</span>
+			  <ion-item class="item item-avatar" ng-repeat="person in todos | orderBy:'name'" href="#/app/list/{{person.id-1}}">
+				 <img src="http://ionicframework.com/img/docs/venkman.jpg">
+				   <h3 style="font-size: 18px !important;" class="cata">{{person.name}}</h3>
+			       
+
+					<span class="badge badge-positive">{{person.formulas.length}}</span>
 			  </ion-item>
 
       </ion-list>
