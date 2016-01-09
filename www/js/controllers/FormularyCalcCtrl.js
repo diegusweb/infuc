@@ -164,7 +164,7 @@ app
 	
 	
 })
-.controller('AnesteciaNoradrenalinaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
+.controller('AnesteciaAdrenalinaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
 	$scope.info = [];
 
 	$scope.submit = function(data) {
@@ -173,7 +173,7 @@ app
 		}*/
 		var peso = parseInt(data.peso);
 		var diluir = parseInt(data.diluir);
-		var ampollas = parseInt(data.ampollas) * 4;
+		var ampollas = parseInt(data.ampollas) * 1;
 		var dosis = parseFloat(data.dosis);
 
 		var res1 = (ampollas/diluir) * 1000;
