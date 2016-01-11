@@ -221,6 +221,62 @@ app
 	}
 	
 	
+})
+.controller('OsmolaridadPlasmaticaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
+	$scope.info = [];
+
+	$scope.submit = function(data) {
+		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
+			$scope.showAlert();
+		}*/
+		//Osm= 2 (Na + k ) + glucosa / 18  + BUN / 2,8 
+		console.log(data);
+		var Na = parseInt(data.na);
+		var bun = parseInt(data.bun);
+		var k = parseInt(data.k);
+		var glucosa = parseInt(data.glucosa);
+
+		console.log(Na + k);
+
+		var osm = 2 * (Na + k) + glucosa/18 + bun/2.8;
+
+		$scope.resultado = osm;
+	}
+
+	$scope.showAlert = function() {
+	   var alertPopup = $ionicPopup.alert({
+		 title: 'Error En Datos',
+		 template: 'No se permite numeros negativo'
+	   });
+	   alertPopup.then(function(res) {
+		 console.log('Thank you for not eating my delicious ice cream cone');
+	   });
+	 };
+
+	$scope.reset = function(){
+	   var confirmPopup = $ionicPopup.confirm({
+		 title: 'Vaciar Formulario',
+		 template: 'Esta segro que desea borrar los campos llenados?'
+	   });
+	   confirmPopup.then(function(res) {
+		 if(res) {
+
+		   $scope.info.Na = null;
+		   $scope.info.glucosa = null;
+		    $scope.info.bun = null;
+		     $scope.info.k = null;
+		   
+		 } else {
+		   console.log('You are not sure');
+		 }
+	   });
+	};
+
+	function isPositiveInteger(n) {
+	    return parseFloat(n) === n >>> 0;
+	}
+	
+	
 });
 
 

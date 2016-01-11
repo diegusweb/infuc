@@ -105,6 +105,15 @@ var app = angular.module('starter', ['ionic'])
       }
     }   
   })
+  .state('app.anestecia_5', {
+    url: "/anestecia_5",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/formulas/anestecia_5.html',
+        controller: 'OsmolaridadPlasmaticaCtrl'
+      }
+    }   
+  })
 
   .state('app.single', {
     url: '/playlists/:playlistId',

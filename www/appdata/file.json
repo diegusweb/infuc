@@ -31,7 +31,22 @@
 			"description":"Noradrenalina",
 			"status":true,
 			"pref":"4"
+		},
+		{
+			"id":5,
+			"name":"Osmolaridad plasmatica",
+			"description":"osmolaridad plasmatica",
+			"status":true,
+			"pref":"5"
+		},
+		{
+			"id":6,
+			"name":"Aclaramiento de creatinina ",
+			"description":"Aclaramiento de creatinina",
+			"status":true,
+			"pref":"6"
 		}
+
 	]
     
   },
