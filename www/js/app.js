@@ -114,6 +114,15 @@ var app = angular.module('starter', ['ionic'])
       }
     }   
   })
+  .state('app.anestecia_6', {
+    url: "/anestecia_6",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/formulas/anestecia_6.html',
+        controller: 'AclaramientoCreatininaCtrl'
+      }
+    }   
+  })
 
   .state('app.single', {
     url: '/playlists/:playlistId',

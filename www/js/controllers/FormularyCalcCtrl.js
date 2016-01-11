@@ -277,6 +277,70 @@ app
 	}
 	
 	
+})
+.controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
+	$scope.info = [];
+
+	$scope.submit = function(data) {
+		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
+			$scope.showAlert();
+		}*/
+		//(140 - edad ) × peso en kg  todo esto dividido entre 
+//72 × creatinina serica 
+
+		console.log(data);
+		var peso = parseInt(data.peso);
+		var edad = parseInt(data.edad);
+		var creatina = parseInt(data.creatinina);
+		var genero = parseInt(data.genero);
+
+		console.log(creatina)
+
+		var osm = (140 - edad) * peso / (71*creatina);
+
+		var res = 0;
+		if(genero == 2)
+			res = osm* 0.85;
+		else
+			res = osm;
+
+		$scope.resultado = res;
+	}
+
+	$scope.showAlert = function() {
+	   var alertPopup = $ionicPopup.alert({
+		 title: 'Error En Datos',
+		 template: 'No se permite numeros negativo'
+	   });
+	   alertPopup.then(function(res) {
+		 console.log('Thank you for not eating my delicious ice cream cone');
+	   });
+	 };
+
+	$scope.reset = function(){
+	   var confirmPopup = $ionicPopup.confirm({
+		 title: 'Vaciar Formulario',
+		 template: 'Esta segro que desea borrar los campos llenados?'
+	   });
+	   confirmPopup.then(function(res) {
+		 if(res) {
+
+		   $scope.info.Na = null;
+		   $scope.info.glucosa = null;
+		    $scope.info.bun = null;
+		     $scope.info.k = null;
+		   
+		 } else {
+		   console.log('You are not sure');
+		 }
+	   });
+	};
+
+	function isPositiveInteger(n) {
+	    return parseFloat(n) === n >>> 0;
+	}
+	
+	
 });
 
 
