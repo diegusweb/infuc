@@ -54,6 +54,26 @@ app
 		}]
 	};
 }])	
+.directive('itemStatus',function(){
+  return{
+    restrict:'E',
+    replace:true,
+    scope:{s:'@'},
+    template: '<img ng-src="{{s}}" >',
+    link: function($scope, element, attrs){
+     
+      attrs.$observe('s',function(value){
+        if(!value){
+          if(attrs.receiptids == "true")
+            	$scope.s = "http://ionicframework.com/img/docs/venkman.jpg";
+            else
+            	$scope.s = "http://ionicframework.com/img/docs/venkmans.jpg";
+        }
+        
+      });
+    }
+  };
+})
 .directive('resultsimple', function() {
     return {
         restrict: 'EA',
