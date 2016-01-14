@@ -54,3 +54,11 @@ app
 		}]
 	};
 }])	
+.directive('resultsimple', function() {
+    return {
+        restrict: 'EA',
+        controller: "AnesteciaDopaminaCtrl",
+        link: function(scope, element, attr) {},
+        templateUrl: 'templates/pages/results-simple.html'
+   };
+});
