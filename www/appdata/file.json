@@ -8,7 +8,7 @@
 			"id":1,
 			"name":"Calculo Gamas Dopamina",
 			"description":"Se multiplica 1mg del medicamento X 1000",
-			"status":false,
+			"status":true,
 			"pref":"1"
 		},
 		{
