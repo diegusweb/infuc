@@ -7,10 +7,6 @@ app.controller('ListCtrl', function($scope, $stateParams, PeopleService, $state)
 		$scope.prefs = cat[$stateParams.id].pref;
     });
 
-    $scope.demo2 = function(a){
-    	console.log(a);
-    };
-
     $scope.disabled = function() {
     	console.log("asdasd");
 	  //if($scope.addInviteesDisabled) { return false;}
