@@ -13,7 +13,7 @@
 	<ion-content>
 		<ion-list class="list">
       
-	   <ion-item class="item item-avatar cat" ng-repeat="person in todos | orderBy:'name'" href="#/app/{{prefs+'_'+person.pref}}">
+	   <ion-item ng-click="disabled()" class="item item-avatar cat" ng-repeat="person in todos | orderBy:'name'" href="#/app/{{prefs+'_'+person.pref}}">
 
 	  
 
