@@ -13,7 +13,7 @@
 	<ion-content>
 		<ion-list class="list">
       
-	   <ion-item class="item item-avatar cat" ng-repeat="person in todos | orderBy:'name' | filter: {'status': true}: true" href="#/app/{{prefs+'_'+person.pref}}" ng-if="todos.length > 0">
+	   <ion-item class="item item-avatar cat" ng-repeat="person in todos | orderBy:'name' " href="#/app/{{prefs+'_'+person.pref}}" ng-if="todos.length > 0">
 
 	   		<item-status receiptids="{{person.status}}"></item-status>
 

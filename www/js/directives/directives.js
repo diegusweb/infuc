@@ -67,7 +67,7 @@ app
           if(attrs.receiptids == "true")
             	$scope.s = "img/infuc.png";
             else
-            	$scope.s = "http://ionicframework.com/img/docs/venkmans.jpg";
+            	$scope.s = "img/infuc_disabled.png";
         }
         
       });
