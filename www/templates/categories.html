@@ -16,12 +16,16 @@
       <!-- The content of the page -->
       <ion-list class="list">
 
-			  <ion-item class="item item-list" ng-repeat="person in todos | orderBy:'name'" href="#/app/list/{{person.id-1}}">
+			  <ion-item class="item item-list" ng-repeat="person in todos | orderBy:'name'" href="#/app/list/{{person.id-1}}" ng-if="todos.length > 0">
 				 
 				   <h3 style="font-size: 17px !important;" class="cata_">{{person.name}}</h3>
 			       
 
 					<span class="badge badge-positive">{{person.formulas.length}}</span>
+			  </ion-item>
+
+			   <ion-item class="animate-if" ng-if="todos.length == 0">
+						  No se Encuentran Registros
 			  </ion-item>
 
       </ion-list>
