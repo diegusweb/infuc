@@ -122,9 +122,9 @@ var app = angular.module('starter', ['ionic'])
         controller: 'AclaramientoCreatininaCtrl'
       }
     }   
-  })
+  });
 
-  .state('app.single', {
+  /*.state('app.single', {
     url: '/playlists/:playlistId',
     views: {
       'menuContent': {
@@ -132,7 +132,7 @@ var app = angular.module('starter', ['ionic'])
         controller: 'PlaylistCtrl'
       }
     }
-  });
+  });*/
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/categories');
 });
