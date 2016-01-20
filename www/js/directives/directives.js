@@ -65,7 +65,7 @@ app
       attrs.$observe('s',function(value){
         if(!value){
           if(attrs.receiptids == "true")
-            	$scope.s = "http://ionicframework.com/img/docs/venkman.jpg";
+            	$scope.s = "img/infuc.png";
             else
             	$scope.s = "http://ionicframework.com/img/docs/venkmans.jpg";
         }
