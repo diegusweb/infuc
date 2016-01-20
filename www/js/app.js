@@ -32,14 +32,14 @@ var app = angular.module('starter', ['ionic'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
+  /*.state('app.search', {
     url: '/search',
     views: {
       'menuContent': {
         templateUrl: 'templates/search.html'
       }
     }
-  })
+  })*/
 
   .state('app.about', {
       url: '/about',
