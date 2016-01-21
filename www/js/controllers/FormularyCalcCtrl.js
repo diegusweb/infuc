@@ -278,7 +278,7 @@ app
 	
 	
 })
-.controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
+.controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup, ionicToast) {
 	$scope.info = [];
 
 	$scope.submit = function(data) {
@@ -288,23 +288,25 @@ app
 		//(140 - edad ) × peso en kg  todo esto dividido entre 
 //72 × creatinina serica 
 
-		console.log(data);
 		var peso = parseInt(data.peso);
 		var edad = parseInt(data.edad);
 		var creatina = parseInt(data.creatinina);
 		var genero = parseInt(data.genero);
 
-		console.log(creatina)
+		if(peso == 0){
+			$scope.showToast();
+		}
+		else{
+			var osm = (140 - edad) * peso / (71*creatina);
 
-		var osm = (140 - edad) * peso / (71*creatina);
+			var res = 0;
+			if(genero == 2)
+				res = osm* 0.85;
+			else
+				res = osm;
 
-		var res = 0;
-		if(genero == 2)
-			res = osm* 0.85;
-		else
-			res = osm;
-
-		$scope.resultado = res;
+			$scope.resultado = res;
+		}
 	}
 
 	$scope.showAlert = function() {
@@ -340,6 +342,10 @@ app
 	    return parseFloat(n) === n >>> 0;
 	}
 	
+	$scope.showToast = function(){
+
+	 ionicToast.show('This is a toast at the bottom.', 'middle',false, 2000);
+	};
 	
 });
 
