@@ -8,7 +8,7 @@
 
 .scroll{height: 100%;}
 
-.form-validate.ng-invalid {
+/*.form-validate.ng-invalid {
     border: 3px solid #cc2511;
 }
 .form-validate.ng-valid {
@@ -21,8 +21,44 @@ form input.ng-invalid:not(.ng-pristine) {
 .error-message {
     padding: 12px;
     background-color: rgba(255, 133, 0, 0.1);
-    font-weight: bold;
+    font-wei/ght: bold;
 }
 .item-input input {
     margin: 0 9px 0 0;
+}*/
+
+/*nuevos formularios*/
+.error-container {
+  margin: 5px 0;
+}
+
+.error-container:last-child {
+    margin: 5px 0 0;
+}
+
+.error {
+  padding: 10px 16px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #555;
+  vertical-align: middle;
+}
+
+.error i {
+  font-size: 24px;
+  color: #B83E2C;  
+  vertical-align: middle;
+}
+
+.last-error-container > .error {
+  padding: 10px 16px 0;
+}
+
+.has-errors {
+  border-bottom: 3px solid #B83E2C;
+}
+
+.no-errors {
+  border-bottom: 3px solid green;
 }

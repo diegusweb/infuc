@@ -281,6 +281,17 @@ app
 .controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup, ionicToast) {
 	$scope.info = [];
 
+	  $scope.authorization = {
+	    username: '',
+	    password : ''    
+	  };  
+	  
+	  $scope.signIn = function(form) {
+	    if(form.$valid) {
+	      $state.go('home');
+	    }
+	  };  
+
 	$scope.submit = function(data) {
 		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
 			$scope.showAlert();
