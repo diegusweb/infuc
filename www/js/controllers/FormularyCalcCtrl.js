@@ -279,45 +279,49 @@ app
 	
 })
 .controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup, ionicToast) {
-	$scope.info = [];
+	//$scope.info = [];
 
-	  $scope.authorization = {
-	    username: '',
-	    password : ''    
+	  $scope.info = {
+	    edad: '',
+	    peso : '',
+	    creatinina:'',
+	    genero:''    
 	  };  
 	  
-	  $scope.signIn = function(form) {
-	    if(form.$valid) {
-	      $state.go('home');
-	    }
-	  };  
 
-	$scope.submit = function(data) {
+	$scope.submit = function(form, info) {
 		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
 			$scope.showAlert();
 		}*/
 		//(140 - edad ) × peso en kg  todo esto dividido entre 
 //72 × creatinina serica 
 
-		var peso = parseInt(data.peso);
-		var edad = parseInt(data.edad);
-		var creatina = parseInt(data.creatinina);
-		var genero = parseInt(data.genero);
+console.log(info.peso);
 
-		if(peso == 0){
-			$scope.showToast();
-		}
-		else{
-			var osm = (140 - edad) * peso / (71*creatina);
+		if(form.$valid) {
+		
+console.log("asdasdasdas");
+			var peso = parseInt(info.peso);
+			var edad = parseInt(info.edad);
+			var creatina = parseInt(info.creatinina);
+			var genero = parseInt(info.genero);
 
-			var res = 0;
-			if(genero == 2)
-				res = osm* 0.85;
-			else
-				res = osm;
+			if(peso == 0){
+				$scope.showToast();
+			}
+			else{
+				var osm = (140 - edad) * peso / (71*creatina);
 
-			$scope.resultado = res;
-		}
+				var res = 0;
+				if(genero == 2)
+					res = osm* 0.85;
+				else
+					res = osm;
+
+				$scope.resultado = res;
+			}
+
+		}	
 	}
 
 	$scope.showAlert = function() {

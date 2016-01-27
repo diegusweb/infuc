@@ -9,20 +9,19 @@
 
         </div>
 
-   <form name="authorizationForm" novalidate="" ng-submit="signIn(authorizationForm)"> 
-        
-          <div class="list">
-          
-            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.username.$invalid, 'no-errors' : authorizationForm.username.$valid}">
-              <span class="input-label">Username</span>
-              <input type="text" name="username" ng-model="authorization.username" ng-minlength="5" ng-maxlength="20" required>
-            </label>
-            
-            <div class="error-container" ng-show="authorizationForm.username.$error" ng-messages="authorizationForm.username.$error">
-              <div ng-messages-include="error-list.html"></div>
-            </div>
-            
-            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.password.$invalid && authorizationForm.$submitted, 'no-errors' : authorizationForm.password.$valid  && authorizationForm.$submitted}">
+
+        <!-- 
+ <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.username.$invalid, 'no-errors' : authorizationForm.username.$valid}">
+  <span class="input-label">Username</span>
+  <input type="text" name="username" ng-model="authorization.username" ng-minlength="5" ng-maxlength="20" required>
+</label>
+
+<div class="error-container" ng-show="authorizationForm.username.$error" ng-messages="authorizationForm.username.$error">
+  <div ng-messages-include="error-list.html"></div>
+</div>
+
+
+<label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.password.$invalid && authorizationForm.$submitted, 'no-errors' : authorizationForm.password.$valid  && authorizationForm.$submitted}">
               <span class="input-label">Password</span>
               <input type="password" name="password" ng-model="authorization.password" ng-minlength="5" ng-maxlength="20" required>
             </label>
@@ -30,12 +29,77 @@
             <div class="error-container last-error-container" ng-show="authorizationForm.password.$error && authorizationForm.$submitted" ng-messages="authorizationForm.password.$error">
                 <div ng-messages-include="error-list.html"></div> 
             </div>          
+        -->
+
+   <form name="infoForm" novalidate="" ng-submit="submit(infoForm, info)"> 
+        
+          <div class="list">
+          
+            <label class="item item-input" ng-class="{ 'has-errors' : infoForm.peso.$invalid && infoForm.$submitted, 'no-errors' : infoForm.peso.$valid}">
+              <span class="input-label">Valor de Peso </span>
+              <input type="number" name="peso" ng-model="info.peso" ng-minlength="1" ng-maxlength="4"  required>
+            </label>
+            
+            <div class="error-container last-error-container" ng-show="infoForm.peso.$error && infoForm.$submitted" ng-messages="infoForm.peso.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+
+
+            
+            <label class="item item-input" ng-class="{ 'has-errors' : infoForm.edad.$invalid && infoForm.$submitted, 'no-errors' : infoForm.edad.$valid  && infoForm.$submitted}">
+              <span class="input-label">Valor de Edad</span>
+              <input type="number" name="edad" ng-model="info.edad" required>
+            </label>
+            
+            <div class="error-container last-error-container" ng-show="infoForm.edad.$error && infoForm.$submitted" ng-messages="infoForm.edad.$error">
+                <div ng-messages-include="error-list.html"></div> 
+            </div>       
+
+
+             <label class="item item-input" ng-class="{ 'has-errors' : infoForm.creatinina.$invalid && infoForm.$submitted, 'no-errors' : infoForm.creatinina.$valid  && infoForm.$submitted}">
+              <span class="input-label">Creatinina serica</span>
+              <input type="number" name="creatinina" ng-model="info.creatinina" required>
+            </label>
+            
+            <div class="error-container last-error-container" ng-show="infoForm.creatinina.$error && infoForm.$submitted" ng-messages="infoForm.creatinina.$error">
+                <div ng-messages-include="error-list.html"></div> 
+            </div>   
+
+
+
+        <label class="item item-input item-select">   
+            
+               <select name="genero" id="genero" ng-model="info.genero">
+                  <option value="1" selected>Masculino</option>
+                  <option value="2">Femenino</option>
+                </select>
+                <span class="input-label">Genero </span>         
+            </label>    
+             <div class="error-container last-error-container" ng-show="infoForm.genero.$error && infoForm.$submitted" ng-messages="infoForm.genero.$error">
+                <div ng-messages-include="error-list.html"></div> 
+            </div>   
+
+
             
           </div>     
           
-          <button class="button button-full button-positive" type="submit">
-            Sign In
-          </button>
+
+
+          <div style="position: absolute; bottom: 0px; width: 100%">
+            <div id="res-simple" style="border:1px solid #ccc; background-color:#fff; ">
+                <div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Resultados</div>
+                <div style="padding:5px; background-color:#f9f9f9;">{{resultado}}</div>
+            </div>
+            <div style="text-align: center">
+                <div class="row">
+                  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
+                  <div class="col"><button type="submit" class="button button-block button-positive">CALCULATE</button></div>
+                </div>
+              
+            </div>
+        </div>
+
+
             
         </form>   
 
@@ -51,6 +115,10 @@
             <div class="error" ng-message="maxlength">
               <i class="ion-information-circled"></i> 
               Maximum length of this field is 20 characters!
+            </div>
+            <div class="error" ng-message="number">
+              <i class="ion-information-circled"></i> 
+              this is number
             </div>
           </script>   
 

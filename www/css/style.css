@@ -56,7 +56,7 @@ form input.ng-invalid:not(.ng-pristine) {
 }
 
 .has-errors {
-  border-bottom: 3px solid #B83E2C;
+  border-bottom: 3px solid #B83E2C !important;
 }
 
 .no-errors {
