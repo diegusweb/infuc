@@ -10,27 +10,6 @@
         </div>
 
 
-        <!-- 
- <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.username.$invalid, 'no-errors' : authorizationForm.username.$valid}">
-  <span class="input-label">Username</span>
-  <input type="text" name="username" ng-model="authorization.username" ng-minlength="5" ng-maxlength="20" required>
-</label>
-
-<div class="error-container" ng-show="authorizationForm.username.$error" ng-messages="authorizationForm.username.$error">
-  <div ng-messages-include="error-list.html"></div>
-</div>
-
-
-<label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.password.$invalid && authorizationForm.$submitted, 'no-errors' : authorizationForm.password.$valid  && authorizationForm.$submitted}">
-              <span class="input-label">Password</span>
-              <input type="password" name="password" ng-model="authorization.password" ng-minlength="5" ng-maxlength="20" required>
-            </label>
-            
-            <div class="error-container last-error-container" ng-show="authorizationForm.password.$error && authorizationForm.$submitted" ng-messages="authorizationForm.password.$error">
-                <div ng-messages-include="error-list.html"></div> 
-            </div>          
-        -->
-
    <form name="infoForm" novalidate="" ng-submit="submit(infoForm, info)"> 
         
           <div class="list">
@@ -57,8 +36,8 @@
 
 
              <label class="item item-input" ng-class="{ 'has-errors' : infoForm.creatinina.$invalid && infoForm.$submitted, 'no-errors' : infoForm.creatinina.$valid  && infoForm.$submitted}">
-              <span class="input-label">Creatinina serica</span>
-              <input type="number" name="creatinina" ng-model="info.creatinina" required>
+              <span class="input-label">Creatinina serica sdssd</span>
+              <input type="number" name="creatinina" ng-model="info.creatinina" style="width:50px;" required>
             </label>
             
             <div class="error-container last-error-container" ng-show="infoForm.creatinina.$error && infoForm.$submitted" ng-messages="infoForm.creatinina.$error">
@@ -106,7 +85,7 @@
           <script id="error-list.html" type="text/ng-template">  
             <div class="error" ng-message="required">
               <i class="ion-information-circled"></i> 
-              This field is required!sss
+              Este campo es Requerido!
             </div>
             <div class="error" ng-message="minlength">
               <i class="ion-information-circled"></i> 
@@ -118,7 +97,7 @@
             </div>
             <div class="error" ng-message="number">
               <i class="ion-information-circled"></i> 
-              this is number
+              Este campo debe ser un Numero!
             </div>
           </script>   
 
