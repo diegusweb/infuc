@@ -290,7 +290,7 @@ app
 	    genero:''    
 	  };  
 
-	  $scope.genero = [{id: 1, text: 'MASCULINO', checked: false, icon: null},{id: 2, text: 'FEMENINO', checked: false, icon: null}];
+	  $scope.genero = [{id: 1, text: 'Masculino', checked: false, icon: null},{id: 2, text: 'Femenino', checked: false, icon: null}];
 
 	  /*$scope.countries = [
     {id: 1, text: 'USA', checked: false, icon: null}, 
