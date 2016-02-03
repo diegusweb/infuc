@@ -281,22 +281,39 @@ app
 .controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup, ionicToast) {
 	//$scope.info = [];
 
+	//http://codepen.io/mhartington/pen/CImqy
+
 	  $scope.info = {
 	    edad: '',
 	    peso : '',
 	    creatinina:'',
 	    genero:''    
 	  };  
+
+	  $scope.genero = [{id: 1, text: 'MASCULINO', checked: false, icon: null},{id: 2, text: 'FEMENINO', checked: false, icon: null}];
+
+	  /*$scope.countries = [
+    {id: 1, text: 'USA', checked: false, icon: null}, 
+    {id: 2, text: 'France', checked: false, icon: 'https://www.zeendoc.com/wp-content/themes/zeendoc/img/french_flag_small.jpg'}, 
+    {id : 3, text: 'Japan', checked: true, icon: null}];*/
+  
+  $scope.countries_text_single = 'Seleccione Genero';
+  //$scope.countries_text_multiple = 'Choose countries';
+  $scope.val =  {single: null, multiple: null};
+
+
 	  
 
 	$scope.submit = function(form, info) {
+
+
 		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
 			$scope.showAlert();
 		}*/
 		//(140 - edad ) × peso en kg  todo esto dividido entre 
 //72 × creatinina serica 
 
-console.log(info.peso);
+console.log($scope.val.single);
 
 		if(form.$valid) {
 		
@@ -304,7 +321,7 @@ console.log("asdasdasdas");
 			var peso = parseInt(info.peso);
 			var edad = parseInt(info.edad);
 			var creatina = parseInt(info.creatinina);
-			var genero = parseInt(info.genero);
+			var genero = parseInt($scope.val.single);
 
 			if(peso == 0){
 				$scope.showToast();
