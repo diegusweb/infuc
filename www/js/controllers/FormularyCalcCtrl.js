@@ -315,9 +315,13 @@ app
 
 console.log($scope.val.single);
 
+if($scope.val.single == null){
+	$scope.showToast("debe seleccionar un genero");
+}
+
 		if(form.$valid) {
 		
-console.log("asdasdasdas");
+			console.log("asdasdasdas");
 			var peso = parseInt(info.peso);
 			var edad = parseInt(info.edad);
 			var creatina = parseInt(info.creatinina);
@@ -351,6 +355,7 @@ console.log("asdasdasdas");
 	   });
 	 };
 
+
 	$scope.reset = function(){
 	   var confirmPopup = $ionicPopup.confirm({
 		 title: 'Vaciar Formulario',
@@ -374,9 +379,10 @@ console.log("asdasdasdas");
 	    return parseFloat(n) === n >>> 0;
 	}
 	
-	$scope.showToast = function(){
+	//middle, top, bottom
+	$scope.showToast = function(ms){
 
-	 ionicToast.show('This is a toast at the bottom.', 'middle',false, 2000);
+	 ionicToast.show(ms, 'bottom',false, 2000);
 	};
 	
 });

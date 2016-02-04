@@ -16,7 +16,7 @@
           
             <label class="item item-input" ng-class="{ 'has-errors' : infoForm.peso.$invalid && infoForm.$submitted, 'no-errors' : infoForm.peso.$valid}">
               <span class="input-label">Valor de Peso </span>
-              <input type="number" name="peso" ng-model="info.peso" ng-minlength="1" ng-maxlength="4"  required>
+              <input type="number" name="peso" placeholder="vangrese valor" ng-model="info.peso" ng-minlength="1" ng-maxlength="4"  required>
             </label>
             
             <div class="error-container last-error-container" ng-show="infoForm.peso.$error && infoForm.$submitted" ng-messages="infoForm.peso.$error">
@@ -27,7 +27,7 @@
             
             <label class="item item-input" ng-class="{ 'has-errors' : infoForm.edad.$invalid && infoForm.$submitted, 'no-errors' : infoForm.edad.$valid  && infoForm.$submitted}">
               <span class="input-label">Valor de Edad</span>
-              <input type="number" name="edad" ng-model="info.edad" required>
+              <input type="number" placeholder="ingrese valor"  name="edad" ng-model="info.edad" required>
             </label>
             
             <div class="error-container last-error-container" ng-show="infoForm.edad.$error && infoForm.$submitted" ng-messages="infoForm.edad.$error">
@@ -37,7 +37,7 @@
 
              <label class="item item-input" ng-class="{ 'has-errors' : infoForm.creatinina.$invalid && infoForm.$submitted, 'no-errors' : infoForm.creatinina.$valid  && infoForm.$submitted}">
               <span class="input-label">Creatinina serica sdssd</span>
-              <input type="number" name="creatinina" ng-model="info.creatinina" style="width:50px;" required>
+              <input type="number" placeholder="vangrese valor" name="creatinina" ng-model="info.creatinina" style="width:50px;" required>
             </label>
             
             <div class="error-container last-error-container" ng-show="infoForm.creatinina.$error && infoForm.$submitted" ng-messages="infoForm.creatinina.$error">
@@ -52,21 +52,6 @@
                       text="countries_text_single"
                       items="genero">
         </fancy-select>
-
-
-       <!-- <label class="item item-input item-select">   
-            
-               <select name="genero" id="genero" ng-model="info.genero">
-                  <option value="1" selected>Masculino</option>
-                  <option value="2">Femenino</option>
-                </select>
-                <span class="input-label">Genero </span>         
-            </label>    
-             <div class="error-container last-error-container" ng-show="infoForm.genero.$error && infoForm.$submitted" ng-messages="infoForm.genero.$error">
-                <div ng-messages-include="error-list.html"></div> 
-            </div>  --> 
-
-
             
           </div>     
           
