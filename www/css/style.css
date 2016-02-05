@@ -103,3 +103,35 @@ form input.ng-invalid:not(.ng-pristine) {
 .item-input input{
    /*  text-align: right; */
 }
+
+#circle {
+	background-color: #f8f8f8;
+    border: 6px solid #387ef5;
+    border-radius: 50%;
+    color: black;
+    height: 100px;
+    width: 100px;
+   
+}
+.innerTEXT{
+    left: 39px;
+    position: absolute;
+    top: 43px
+}
+.innerTEXT2{
+    left: 145px;
+    position: absolute;
+    top: 43px
+}
+.innerTEXT3{
+    left: 263px;
+    position: absolute;
+    top: 43px
+}
+
+.infoFormTest input[type="number"] {
+    background-color: transparent;
+    border: medium none;
+    font-size: 30px;
+    width: 50px;
+}

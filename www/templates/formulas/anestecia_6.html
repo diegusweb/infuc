@@ -10,18 +10,57 @@
         </div>
 
 
-   <form name="infoForm" novalidate="" ng-submit="submit(infoForm, info)"> 
+   <form name="infoForm" class="infoFormTest" novalidate="" ng-submit="submit(infoForm, info)"> 
         
           <div class="list">
           
-            <label class="item item-input" ng-class="{ 'has-errors' : infoForm.peso.$invalid && infoForm.$submitted, 'no-errors' : infoForm.peso.$valid}">
+           <!-- <label class="item item-input" ng-class="{ 'has-errors' : infoForm.peso.$invalid && infoForm.$submitted, 'no-errors' : infoForm.peso.$valid}">
               <span class="input-label">Valor de Peso </span>
               <input type="number" name="peso" placeholder="vangrese valor" ng-model="info.peso" ng-minlength="1" ng-maxlength="4"  required>
             </label>
             
             <div class="error-container last-error-container" ng-show="infoForm.peso.$error && infoForm.$submitted" ng-messages="infoForm.peso.$error">
               <div ng-messages-include="error-list.html"></div>
+            </div>-->
+
+            <div class = "row">
+                <div class = "col text-center">
+                <div id="circle">
+                    <span class="innerTEXT">  
+                        <input type="number" name="peso" ng-model="info.peso" ng-minlength="1"  >
+                    </span>
+                </div>
+                Peso
             </div>
+ 
+ 
+                <div class = "col text-center">
+
+             <div id="circle">
+                <span class="innerTEXT2">  
+                    <input type="number"  name="edad" ng-model="info.edad">
+                </span>
+            </div>
+            Edad
+            </div>
+
+             <div class = "col text-center">
+
+             <div id="circle">
+                <span class="innerTEXT3">  
+                    <input type="number"  name="creatinina" ng-model="info.creatinina" >
+                </span>
+            </div>
+            Creatinina
+            </div>
+ 
+          </div>
+ 
+ 
+
+
+          
+
 
 
             

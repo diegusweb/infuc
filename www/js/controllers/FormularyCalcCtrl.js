@@ -379,7 +379,7 @@ if($scope.val.single == null){
 	    return parseFloat(n) === n >>> 0;
 	}
 	
-	//middle, top, bottom
+	//middle, top, bottom  https://market.ionic.io/plugins/ionictoast
 	$scope.showToast = function(ms){
 
 	 ionicToast.show(ms, 'bottom',false, 2000);
