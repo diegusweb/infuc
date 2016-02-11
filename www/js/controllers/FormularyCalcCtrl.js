@@ -315,11 +315,11 @@ app
 		//(140 - edad ) × peso en kg  todo esto dividido entre 
 //72 × creatinina serica 
 
-console.log($scope.val.single);
+		console.log($scope.val.single);
 
-if($scope.val.single == null){
-	$scope.showToast("debe seleccionar un genero");
-}
+		if($scope.val.single == null){
+			$scope.showToast("debe seleccionar un genero");
+		}
 
 		if(form.$valid) {
 		
@@ -329,8 +329,8 @@ if($scope.val.single == null){
 			var creatina = parseInt(info.creatinina);
 			var genero = parseInt($scope.val.single);
 
-			if(peso == 0){
-				$scope.showToast();
+			if(peso == 0 || edad == 0 || creatina == 0){
+				$scope.showToast("campos vacios");
 			}
 			else{
 				var osm = (140 - edad) * peso / (71*creatina);
@@ -344,6 +344,9 @@ if($scope.val.single == null){
 				$scope.resultado = res;
 			}
 
+		}
+		else{
+			$scope.showToast("Existen campos Vacios");
 		}	
 	}
 
@@ -366,10 +369,9 @@ if($scope.val.single == null){
 	   confirmPopup.then(function(res) {
 		 if(res) {
 
-		   $scope.info.Na = null;
-		   $scope.info.glucosa = null;
-		    $scope.info.bun = null;
-		     $scope.info.k = null;
+		   $scope.info.peso= null;
+		   $scope.info.edad = null;
+		    $scope.info.creatinina = null;
 		   
 		 } else {
 		   console.log('You are not sure');

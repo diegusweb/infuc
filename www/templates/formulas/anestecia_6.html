@@ -5,6 +5,8 @@
             <div style="border:1px solid #ccc; background-color:#fff; ">
                 <div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Informacion</div>
                 <div style="padding:5px; background-color:#f9f9f9;">asdasdas</div>
+                 <div style="padding:5px; background-color:#f9f9f9;">asdassssdas</div>
+                  <div style="padding:5px; background-color:#f9f9f9;">asdasdeeeas</div>
             </div>
 
         </div>
@@ -27,7 +29,7 @@
                 <div class = "col text-center">
                 <div id="circle">
                     <span class="innerTEXT">  
-                        <input type="number" name="peso" id="pesos" ng-model="info.peso" ng-minlength="1"  >
+                        <input type="number" name="peso" id="pesos" ng-model="info.peso" ng-minlength="1"  required>
                     </span>
                 </div>
                 Peso
@@ -38,7 +40,7 @@
 
              <div id="circle">
                 <span class="innerTEXT2">  
-                    <input type="number"  name="edad" ng-model="info.edad">
+                    <input type="number"  name="edad" ng-model="info.edad" required>
                 </span>
             </div>
             Edad
@@ -48,7 +50,7 @@
 
              <div id="circle">
                 <span class="innerTEXT3">  
-                    <input type="number"  name="creatinina" ng-model="info.creatinina" >
+                    <input type="number"  name="creatinina" ng-model="info.creatinina" required>
                 </span>
             </div>
             Creatinina
@@ -56,11 +58,10 @@
  
           </div>
  
-
             
-            <div class="error-container last-error-container" ng-show="infoForm.creatinina.$error && infoForm.$submitted" ng-messages="infoForm.creatinina.$error">
+           <!-- <div class="error-container last-error-container" ng-show="infoForm.creatinina.$error && infoForm.$submitted" ng-messages="infoForm.creatinina.$error">
                 <div ng-messages-include="error-list.html"></div> 
-            </div>   
+            </div>   -->
 
 
         <fancy-select
