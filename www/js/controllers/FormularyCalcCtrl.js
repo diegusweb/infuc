@@ -59,8 +59,15 @@ app
 
 })
 .controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
-	console.log("info "+$stateParams.info );
-	$scope.info = [];
+
+	$("#diastolica").focus();
+
+	  $scope.info = {
+	    edad: '',
+	    peso : '',
+	    creatinina:'',
+	    genero:''    
+	  };  
 
 	$scope.submit = function(data) {
 		if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){

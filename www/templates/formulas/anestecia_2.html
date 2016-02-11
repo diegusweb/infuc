@@ -2,8 +2,30 @@
 <ion-view title="Calcular">
 	<ion-content class="has-header padding form-content">
 
-	<form name="myForm" novalidate>
-        <div class="list___">
+	<form name="infoForm" class="infoFormTest" novalidate="" ng-submit="submit(infoForm, info)">
+		<div>
+			 <div class = "row">
+                <div class = "col text-center">
+                <div id="circle">
+                    <span class="innerTEXT">  
+                        <input type="number" name="diastolica" id="diastolica" ng-model="info.diastolica" ng-minlength="1"  required>
+                    </span>
+                </div>
+                Presion diastolica
+            </div>
+ 
+ 
+                <div class = "col text-center">
+
+             <div id="circle">
+                <span class="innerTEXT2">  
+                    <input type="number"  name="sistolica" ng-model="info.sistolica" ng-minlength="1"  required>
+                </span>
+            </div>
+            Presion sistolica
+            </div>
+		</div>
+        <!--<div class="list___">
             <label class="item item-input">
                 <input type="number" name="diastolica" placeholder="Ingrese Valor" ng-model="info.diastolica" ng-minlength="1" required>
 				<span class="input-label">Presion diastolica </span>
@@ -19,7 +41,7 @@
             <p ng-show="myForm.diastolica.$error.minlength">* diastolica must be longer than 5 characters</p>
             <p ng-show="myForm.sistolica.$error.required">* sistolica es requerido</p>
             <p ng-show="myForm.sistolica.$error.minlength">* sistolica must be longer than 6 characters</p>
-        </div>
+        </div>-->
 		
 		
 		<div style="position: absolute; bottom: 0px; width: 100%">
