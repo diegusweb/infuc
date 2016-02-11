@@ -58,37 +58,33 @@ app
 	};
 
 })
-.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
+.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast) {
 
 	$("#diastolica").focus();
 
-	  $scope.info = {
-	    edad: '',
-	    peso : '',
-	    creatinina:'',
-	    genero:''    
-	  };  
+	$scope.info = {
+		diastolica: '',
+		sistolica : '' 
+	};  
 
-	$scope.submit = function(data) {
-		if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
-			$scope.showAlert();
+	$scope.submit = function(form, info) {
+		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
+			//$scope.showAlert();
+			$scope.showToast("No se permite numeros negativo");
 		}
-		var section1 = (2 * parseInt(data.diastolica));
-		var section2 = section1 + parseInt(data.sistolica);
-		var pam = section2/3;
 
-		$scope.resultado = pam;
+		if(form.$valid) {
+			var section1 = (2 * parseInt(info.diastolica));
+			var section2 = section1 + parseInt(info.sistolica);
+			var pam = section2/3;
+
+			$scope.resultado = pam;
+		}
+		else{
+			$scope.showToast("Campos Vacios");
+		}
+		
 	}
-
-	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
-	 };
 
 	$scope.reset = function(){
 	   var confirmPopup = $ionicPopup.confirm({
@@ -110,6 +106,10 @@ app
 	function isPositiveInteger(n) {
 	    return parseFloat(n) === n >>> 0;
 	}
+
+	$scope.showToast = function(ms){
+	 	ionicToast.show(ms, 'bottom',false, 2000);
+	};
 	
 	
 })
