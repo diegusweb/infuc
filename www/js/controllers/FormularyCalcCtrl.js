@@ -68,6 +68,7 @@ app
 	};  
 
 	$scope.submit = function(form, info) {
+		console.log("aaaaaaaaaaaa");
 		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
 			//$scope.showAlert();
 			$scope.showToast("No se permite numeros negativo");

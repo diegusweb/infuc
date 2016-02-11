@@ -111,6 +111,7 @@ form input.ng-invalid:not(.ng-pristine) {
     color: black;
     height: 100px;
     width: 100px;
+    margin: auto;
    
 }
 .innerTEXT{
@@ -125,6 +126,17 @@ form input.ng-invalid:not(.ng-pristine) {
 }
 .innerTEXT3{
     left: 263px;
+    position: absolute;
+    top: 43px
+}
+
+.innerTEXT-1{
+    left: 67px;
+    position: absolute;
+    top: 43px
+}
+.innerTEXT-2{
+    left: 231px;
     position: absolute;
     top: 43px
 }

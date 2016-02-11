@@ -3,28 +3,29 @@
 	<ion-content class="has-header padding form-content">
 
 	<form name="infoForm" class="infoFormTest" novalidate="" ng-submit="submit(infoForm, info)">
-		<div>
+		 <div class="list">
 			 <div class = "row">
                 <div class = "col text-center">
-                <div id="circle">
-                    <span class="innerTEXT">  
-                        <input type="number" name="diastolica" id="diastolica" ng-model="info.diastolica" ng-minlength="1"  required>
-                    </span>
-                </div>
-                Presion diastolica
-            </div>
+	                <div id="circle">
+	                    <span class="innerTEXT-1">  
+	                        <input type="number" name="diastolica" id="diastolica" ng-model="info.diastolica" ng-minlength="1"  required>
+	                    </span>
+	                </div>
+	                Presion diastolica
+	            </div>
  
  
                 <div class = "col text-center">
 
-             <div id="circle">
-                <span class="innerTEXT2">  
-                    <input type="number"  name="sistolica" ng-model="info.sistolica" ng-minlength="1"  required>
-                </span>
-            </div>
-            Presion sistolica
-            </div>
-		</div>
+	             <div id="circle">
+	                <span class="innerTEXT-2">  
+	                    <input type="number"  name="sistolica" ng-model="info.sistolica" ng-minlength="1"  required>
+	                </span>
+	            </div>
+	            Presion sistolica
+	            </div>
+			</div>
+		</div>   	
         <!--<div class="list___">
             <label class="item item-input">
                 <input type="number" name="diastolica" placeholder="Ingrese Valor" ng-model="info.diastolica" ng-minlength="1" required>
@@ -53,7 +54,7 @@
 			<div style="text-align: center">
 				<div class="row">
 				  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
-				  <div class="col"><button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(info)">CALCULATE</button></div>
+				  <div class="col"><button type="submit" class="button button-block button-positive">CALCULATE</button></div>
 				</div>
 			  
 			</div>
