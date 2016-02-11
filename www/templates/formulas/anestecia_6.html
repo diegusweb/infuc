@@ -27,7 +27,7 @@
                 <div class = "col text-center">
                 <div id="circle">
                     <span class="innerTEXT">  
-                        <input type="number" name="peso" ng-model="info.peso" ng-minlength="1"  >
+                        <input type="number" name="peso" id="pesos" ng-model="info.peso" ng-minlength="1"  >
                     </span>
                 </div>
                 Peso
@@ -56,28 +56,7 @@
  
           </div>
  
- 
 
-
-          
-
-
-
-            
-            <label class="item item-input" ng-class="{ 'has-errors' : infoForm.edad.$invalid && infoForm.$submitted, 'no-errors' : infoForm.edad.$valid  && infoForm.$submitted}">
-              <span class="input-label">Valor de Edad</span>
-              <input type="number" placeholder="ingrese valor"  name="edad" ng-model="info.edad" required>
-            </label>
-            
-            <div class="error-container last-error-container" ng-show="infoForm.edad.$error && infoForm.$submitted" ng-messages="infoForm.edad.$error">
-                <div ng-messages-include="error-list.html"></div> 
-            </div>       
-
-
-             <label class="item item-input" ng-class="{ 'has-errors' : infoForm.creatinina.$invalid && infoForm.$submitted, 'no-errors' : infoForm.creatinina.$valid  && infoForm.$submitted}">
-              <span class="input-label">Creatinina serica sdssd</span>
-              <input type="number" placeholder="vangrese valor" name="creatinina" ng-model="info.creatinina" style="width:50px;" required>
-            </label>
             
             <div class="error-container last-error-container" ng-show="infoForm.creatinina.$error && infoForm.$submitted" ng-messages="infoForm.creatinina.$error">
                 <div ng-messages-include="error-list.html"></div> 

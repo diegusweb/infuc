@@ -281,6 +281,8 @@ app
 .controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup, ionicToast) {
 	//$scope.info = [];
 
+	$("#pesos").focus();
+
 	//http://codepen.io/mhartington/pen/CImqy
 
 	  $scope.info = {
