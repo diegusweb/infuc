@@ -61,14 +61,18 @@ app
 .controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast) {
 
 	$("#diastolica").focus();
+	$scope.resultado = "";
 
 	$scope.info = {
 		diastolica: '',
 		sistolica : '' 
 	};  
 
-	$scope.submit = function(form, info) {
-		console.log("aaaaaaaaaaaa");
+	console.log("demooo");
+
+	$scope.submit_presion = function(form, info) {
+		
+		console.log(info.diastolica);
 		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
 			//$scope.showAlert();
 			$scope.showToast("No se permite numeros negativo");
@@ -79,9 +83,13 @@ app
 			var section2 = section1 + parseInt(info.sistolica);
 			var pam = section2/3;
 
+			console.log(section2 );
+
 			$scope.resultado = pam;
 		}
 		else{
+			$()
+			console.log(form.$error.required[0].$name);
 			$scope.showToast("Campos Vacios");
 		}
 		
@@ -97,6 +105,7 @@ app
 
 		   $scope.info.diastolica = null;
 		   $scope.info.sistolica = null;
+		   $scope.resultado = "";
 		   
 		 } else {
 		   console.log('You are not sure');

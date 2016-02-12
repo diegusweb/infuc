@@ -114,6 +114,11 @@ form input.ng-invalid:not(.ng-pristine) {
     margin: auto;
    
 }
+
+.success{  border: 6px solid #387ef5;}
+
+.danger{  border: 6px solid #B7C2F7 !important;}
+
 .innerTEXT{
     left: 39px;
     position: absolute;

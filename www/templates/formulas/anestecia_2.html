@@ -2,11 +2,21 @@
 <ion-view title="Calcular">
 	<ion-content class="has-header padding form-content">
 
-	<form name="infoForm" class="infoFormTest" novalidate="" ng-submit="submit(infoForm, info)">
+	     <div id="info-form" style="top: 0px; width: 100%; margin-bottom: 10px;">
+            <div style="border:1px solid #ccc; background-color:#fff; ">
+                <div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Informacion</div>
+                <div style="padding:5px; background-color:#f9f9f9;">asdasdas</div>
+                 <div style="padding:5px; background-color:#f9f9f9;">asdassssdas</div>
+                  <div style="padding:5px; background-color:#f9f9f9;">asdasdeeeas</div>
+            </div>
+
+        </div>
+
+	<form name="infoForm" class="infoFormTest" novalidate="" ng-submit="submit_presion(infoForm, info)">
 		 <div class="list">
 			 <div class = "row">
                 <div class = "col text-center">
-	                <div id="circle">
+	                <div id="circle" ng-class="{ success: infoForm.diastolica.$valid, danger: infoForm.diastolica.$invalid }">
 	                    <span class="innerTEXT-1">  
 	                        <input type="number" name="diastolica" id="diastolica" ng-model="info.diastolica" ng-minlength="1"  required>
 	                    </span>
@@ -17,7 +27,7 @@
  
                 <div class = "col text-center">
 
-	             <div id="circle">
+	             <div id="circle" ng-class="{ success: infoForm.sistolica.$valid, danger: infoForm.sistolica.$invalid }">
 	                <span class="innerTEXT-2">  
 	                    <input type="number"  name="sistolica" ng-model="info.sistolica" ng-minlength="1"  required>
 	                </span>
@@ -46,11 +56,11 @@
 		
 		
 		<div style="position: absolute; bottom: 0px; width: 100%">
-			<!--<div style="border:1px solid #ccc; background-color:#fff; ">
+			<div style="border:1px solid #ccc; background-color:#fff; ">
 				<div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Resultados</div>
 				<div style="padding:5px;">{{resultado}}</div>
-			</div>-->
-            <resultsimple></resultsimple>
+			</div>
+           <!-- <resultsimple></resultsimple>-->
 			<div style="text-align: center">
 				<div class="row">
 				  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
