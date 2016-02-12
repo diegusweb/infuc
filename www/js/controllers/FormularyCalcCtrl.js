@@ -58,7 +58,7 @@ app
 	};
 
 })
-.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast,modalReset) {
+.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast,ModalService) {
 
 	$("#diastolica").focus();
 	$scope.resultado = "";
@@ -89,15 +89,14 @@ app
 
 	$scope.reset = function(){
 
-		modalReset('Vaciar Formularios','Esta segro que desea borrar los campos llenados?').then(
+		ModalService.resetModal().then(
 			function( response ) {
-                console.log( "Confirm accomplished with", response );
-                $scope.info.diastolica = null;
+				 $scope.info.diastolica = null;
 		   		$scope.info.sistolica = null;
 		   		$scope.resultado = "";
             },
             function() {
-                console.log( "Confirm failed :(" );
+                
             });
 	};
 
@@ -228,7 +227,7 @@ app
 	
 	
 })
-.controller('OsmolaridadPlasmaticaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
+.controller('OsmolaridadPlasmaticaCtrl', function($scope, $stateParams, PeopleService,ModalService, $ionicPopup) {
 	$scope.info = [];
 
 	$scope.submit = function(data) {
@@ -260,22 +259,16 @@ app
 	 };
 
 	$scope.reset = function(){
-	   var confirmPopup = $ionicPopup.confirm({
-		 title: 'Vaciar Formulario',
-		 template: 'Esta segro que desea borrar los campos llenados?'
-	   });
-	   confirmPopup.then(function(res) {
-		 if(res) {
-
-		   $scope.info.Na = null;
-		   $scope.info.glucosa = null;
-		    $scope.info.bun = null;
-		     $scope.info.k = null;
-		   
-		 } else {
-		   console.log('You are not sure');
-		 }
-	   });
+			ModalService.resetModal().then(
+			function( response ) {
+				$scope.info.Na = null;
+				$scope.info.glucosa = null;
+				$scope.info.bun = null;
+				$scope.info.k = null;
+            },
+            function() {
+                
+            });
 	};
 
 	function isPositiveInteger(n) {
@@ -284,7 +277,7 @@ app
 	
 	
 })
-.controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup, ionicToast) {
+.controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService, ModalService, ionicToast, $ionicPopup) {
 	//$scope.info = [];
 
 	$("#pesos").focus();
@@ -368,21 +361,16 @@ app
 
 
 	$scope.reset = function(){
-	   var confirmPopup = $ionicPopup.confirm({
-		 title: 'Vaciar Formulario',
-		 template: 'Esta segro que desea borrar los campos llenados?'
-	   });
-	   confirmPopup.then(function(res) {
-		 if(res) {
 
-		   $scope.info.peso= null;
-		   $scope.info.edad = null;
-		    $scope.info.creatinina = null;
-		   
-		 } else {
-		   console.log('You are not sure');
-		 }
-	   });
+		ModalService.resetModal().then(
+				function( response ) {
+					$scope.info.peso= null;
+					$scope.info.edad = null;
+					$scope.info.creatinina = null;
+	            },
+	            function() {
+	                
+	            });
 	};
 
 	function isPositiveInteger(n) {
