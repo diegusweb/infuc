@@ -1,16 +1,10 @@
 app
-.controller('AnesteciaDopaminaCtrl', function($scope, $stateParams, PeopleService,$location,$ionicPopup) {
+.controller('AnesteciaDopaminaCtrl', function($scope, $stateParams, PeopleService,$location,$ionicPopup,ModalService) {
 	$scope.info = [];
 	$scope.resultado=0;
 	
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Don\'t eat that!',
-		 template: 'It might taste good'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+	   ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
 	$scope.submit = function(data) {
@@ -40,21 +34,16 @@ app
 	};
 	
 	$scope.reset = function(){
-	   var confirmPopup = $ionicPopup.confirm({
-		 title: 'Consume Ice Cream',
-		 template: 'Esta segro que desea borrar los campos llenados?'
-	   });
-	   confirmPopup.then(function(res) {
-		 if(res) {
 
-		   $scope.info.username = null;
+		ModalService.resetModal().then(
+			function( response ) {
+				  $scope.info.username = null;
 		   $scope.info.desidad = null;
 		   $scope.info.opacidad = null;
-		   
-		 } else {
-		   console.log('You are not sure');
-		 }
-	   });
+            },
+            function() {
+                
+            });
 	};
 
 })
@@ -137,13 +126,7 @@ app
 	}
 
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+	 	 ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
 	$scope.reset = function(){
@@ -195,13 +178,7 @@ app
 	}
 
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+	  	ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
 	$scope.reset = function(){
@@ -249,26 +226,20 @@ app
 	}
 
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+		ModalService.alertModal("demo","modalll");
 	 };
 
 	$scope.reset = function(){
-			ModalService.resetModal().then(
-			function( response ) {
-				$scope.info.Na = null;
-				$scope.info.glucosa = null;
-				$scope.info.bun = null;
-				$scope.info.k = null;
-            },
-            function() {
-                
-            });
+		ModalService.resetModal().then(
+		function( response ) {
+			$scope.info.Na = null;
+			$scope.info.glucosa = null;
+			$scope.info.bun = null;
+			$scope.info.k = null;
+        },
+        function() {
+            
+        });
 	};
 
 	function isPositiveInteger(n) {
@@ -350,13 +321,7 @@ app
 	}
 
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+		ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
 

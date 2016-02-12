@@ -18,6 +18,15 @@ app.factory('ModalService', ['$ionicPopup', '$q',
                    });
 
                   return( defer.promise );
+            },
+            alertModal: function(titles, message){
+                 var alertPopup = $ionicPopup.alert({
+                   title: titles,
+                   template: message
+                   });
+                   alertPopup.then(function(res) {
+                   console.log('Thank you for not eating my delicious ice cream cone');
+                   });
             }
         };
     }
