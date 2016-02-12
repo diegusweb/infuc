@@ -58,7 +58,7 @@ app
 	};
 
 })
-.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast) {
+.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast,modalReset) {
 
 	$("#diastolica").focus();
 	$scope.resultado = "";
@@ -68,13 +68,9 @@ app
 		sistolica : '' 
 	};  
 
-	console.log("demooo");
-
 	$scope.submit_presion = function(form, info) {
 		
-		console.log(info.diastolica);
 		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
-			//$scope.showAlert();
 			$scope.showToast("No se permite numeros negativo");
 		}
 
@@ -83,34 +79,26 @@ app
 			var section2 = section1 + parseInt(info.sistolica);
 			var pam = section2/3;
 
-			console.log(section2 );
-
 			$scope.resultado = pam;
 		}
 		else{
-			$()
-			console.log(form.$error.required[0].$name);
 			$scope.showToast("Campos Vacios");
 		}
 		
 	}
 
 	$scope.reset = function(){
-	   var confirmPopup = $ionicPopup.confirm({
-		 title: 'Vaciar Formulario',
-		 template: 'Esta segro que desea borrar los campos llenados?'
-	   });
-	   confirmPopup.then(function(res) {
-		 if(res) {
 
-		   $scope.info.diastolica = null;
-		   $scope.info.sistolica = null;
-		   $scope.resultado = "";
-		   
-		 } else {
-		   console.log('You are not sure');
-		 }
-	   });
+		modalReset('Vaciar Formularios','Esta segro que desea borrar los campos llenados?').then(
+			function( response ) {
+                console.log( "Confirm accomplished with", response );
+                $scope.info.diastolica = null;
+		   		$scope.info.sistolica = null;
+		   		$scope.resultado = "";
+            },
+            function() {
+                console.log( "Confirm failed :(" );
+            });
 	};
 
 	function isPositiveInteger(n) {
@@ -118,7 +106,8 @@ app
 	}
 
 	$scope.showToast = function(ms){
-	 	ionicToast.show(ms, 'bottom',false, 2000);
+	 	var s = ionicToast.show(ms, 'bottom',false, 2000);
+	 	console.log(s);
 	};
 	
 	
