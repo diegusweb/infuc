@@ -1,16 +1,10 @@
 app
-.controller('AnesteciaDopaminaCtrl', function($scope, $stateParams, PeopleService,$location,$ionicPopup) {
+.controller('AnesteciaDopaminaCtrl', function($scope, $stateParams, PeopleService,$location,$ionicPopup,ModalService) {
 	$scope.info = [];
 	$scope.resultado=0;
 	
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Don\'t eat that!',
-		 template: 'It might taste good'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+	   ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
 	$scope.submit = function(data) {
@@ -40,25 +34,20 @@ app
 	};
 	
 	$scope.reset = function(){
-	   var confirmPopup = $ionicPopup.confirm({
-		 title: 'Consume Ice Cream',
-		 template: 'Esta segro que desea borrar los campos llenados?'
-	   });
-	   confirmPopup.then(function(res) {
-		 if(res) {
 
-		   $scope.info.username = null;
+		ModalService.resetModal().then(
+			function( response ) {
+				  $scope.info.username = null;
 		   $scope.info.desidad = null;
 		   $scope.info.opacidad = null;
-		   
-		 } else {
-		   console.log('You are not sure');
-		 }
-	   });
+            },
+            function() {
+                
+            });
 	};
 
 })
-.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast) {
+.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast,ModalService) {
 
 	$("#diastolica").focus();
 	$scope.resultado = "";
@@ -68,13 +57,9 @@ app
 		sistolica : '' 
 	};  
 
-	console.log("demooo");
-
 	$scope.submit_presion = function(form, info) {
 		
-		console.log(info.diastolica);
 		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
-			//$scope.showAlert();
 			$scope.showToast("No se permite numeros negativo");
 		}
 
@@ -83,34 +68,25 @@ app
 			var section2 = section1 + parseInt(info.sistolica);
 			var pam = section2/3;
 
-			console.log(section2 );
-
 			$scope.resultado = pam;
 		}
 		else{
-			$()
-			console.log(form.$error.required[0].$name);
 			$scope.showToast("Campos Vacios");
 		}
 		
 	}
 
 	$scope.reset = function(){
-	   var confirmPopup = $ionicPopup.confirm({
-		 title: 'Vaciar Formulario',
-		 template: 'Esta segro que desea borrar los campos llenados?'
-	   });
-	   confirmPopup.then(function(res) {
-		 if(res) {
 
-		   $scope.info.diastolica = null;
-		   $scope.info.sistolica = null;
-		   $scope.resultado = "";
-		   
-		 } else {
-		   console.log('You are not sure');
-		 }
-	   });
+		ModalService.resetModal().then(
+			function( response ) {
+				 $scope.info.diastolica = null;
+		   		$scope.info.sistolica = null;
+		   		$scope.resultado = "";
+            },
+            function() {
+                
+            });
 	};
 
 	function isPositiveInteger(n) {
@@ -118,7 +94,8 @@ app
 	}
 
 	$scope.showToast = function(ms){
-	 	ionicToast.show(ms, 'bottom',false, 2000);
+	 	var s = ionicToast.show(ms, 'bottom',false, 2000);
+	 	console.log(s);
 	};
 	
 	
@@ -149,13 +126,7 @@ app
 	}
 
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+	 	 ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
 	$scope.reset = function(){
@@ -207,13 +178,7 @@ app
 	}
 
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+	  	ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
 	$scope.reset = function(){
@@ -239,7 +204,7 @@ app
 	
 	
 })
-.controller('OsmolaridadPlasmaticaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
+.controller('OsmolaridadPlasmaticaCtrl', function($scope, $stateParams, PeopleService,ModalService, $ionicPopup) {
 	$scope.info = [];
 
 	$scope.submit = function(data) {
@@ -261,32 +226,20 @@ app
 	}
 
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+		ModalService.alertModal("demo","modalll");
 	 };
 
 	$scope.reset = function(){
-	   var confirmPopup = $ionicPopup.confirm({
-		 title: 'Vaciar Formulario',
-		 template: 'Esta segro que desea borrar los campos llenados?'
-	   });
-	   confirmPopup.then(function(res) {
-		 if(res) {
-
-		   $scope.info.Na = null;
-		   $scope.info.glucosa = null;
-		    $scope.info.bun = null;
-		     $scope.info.k = null;
-		   
-		 } else {
-		   console.log('You are not sure');
-		 }
-	   });
+		ModalService.resetModal().then(
+		function( response ) {
+			$scope.info.Na = null;
+			$scope.info.glucosa = null;
+			$scope.info.bun = null;
+			$scope.info.k = null;
+        },
+        function() {
+            
+        });
 	};
 
 	function isPositiveInteger(n) {
@@ -295,7 +248,7 @@ app
 	
 	
 })
-.controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup, ionicToast) {
+.controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService, ModalService, ionicToast, $ionicPopup) {
 	//$scope.info = [];
 
 	$("#pesos").focus();
@@ -368,32 +321,21 @@ app
 	}
 
 	$scope.showAlert = function() {
-	   var alertPopup = $ionicPopup.alert({
-		 title: 'Error En Datos',
-		 template: 'No se permite numeros negativo'
-	   });
-	   alertPopup.then(function(res) {
-		 console.log('Thank you for not eating my delicious ice cream cone');
-	   });
+		ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
 
 	$scope.reset = function(){
-	   var confirmPopup = $ionicPopup.confirm({
-		 title: 'Vaciar Formulario',
-		 template: 'Esta segro que desea borrar los campos llenados?'
-	   });
-	   confirmPopup.then(function(res) {
-		 if(res) {
 
-		   $scope.info.peso= null;
-		   $scope.info.edad = null;
-		    $scope.info.creatinina = null;
-		   
-		 } else {
-		   console.log('You are not sure');
-		 }
-	   });
+		ModalService.resetModal().then(
+				function( response ) {
+					$scope.info.peso= null;
+					$scope.info.edad = null;
+					$scope.info.creatinina = null;
+	            },
+	            function() {
+	                
+	            });
 	};
 
 	function isPositiveInteger(n) {
