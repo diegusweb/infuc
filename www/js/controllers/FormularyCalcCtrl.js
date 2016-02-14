@@ -47,9 +47,14 @@ app
 	};
 
 })
-.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast,ModalService) {
+.controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast,ModalService,$cordovaKeyboard) {
 
-	$("#diastolica").focus();
+	cordova.plugins.Keyboard.show();
+
+	$("#diastolica").focusin(function() {
+		$('#resBoton').hide();
+
+	});
 	$scope.resultado = "";
 
 	$scope.info = {
@@ -57,7 +62,15 @@ app
 		sistolica : '' 
 	};  
 
+	
+
+
+
 	$scope.submit_presion = function(form, info) {
+		$('#resBoton').show();
+
+		var isVisible = $cordovaKeyboard.isVisible();
+		alert(isVisible);
 		
 		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
 			$scope.showToast("No se permite numeros negativo");
@@ -73,6 +86,8 @@ app
 		else{
 			$scope.showToast("Campos Vacios");
 		}
+
+
 		
 	}
 
