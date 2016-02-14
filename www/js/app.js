@@ -14,11 +14,14 @@ var app = angular.module('starter', ['ionic','ionic-toast', 'ngMessages'])
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
 
+      console.log('Plugin available');
+
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
   });
 })
 
