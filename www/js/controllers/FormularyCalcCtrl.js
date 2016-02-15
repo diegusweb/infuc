@@ -49,12 +49,19 @@ app
 })
 .controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast,ModalService,$cordovaKeyboard) {
 
-	cordova.plugins.Keyboard.show();
+	//cordova.plugins.Keyboard.show();
 
-	$("#diastolica").focusin(function() {
+
+	$("input[type=number]").focusin(function() {
 		$('#resBoton').hide();
 
 	});
+
+	$("input[type=number]").focusout(function() {
+		$('#resBoton').show();
+
+	});
+
 	$scope.resultado = "";
 
 	$scope.info = {
@@ -62,15 +69,11 @@ app
 		sistolica : '' 
 	};  
 
-	
-
-
-
 	$scope.submit_presion = function(form, info) {
 		$('#resBoton').show();
 
-		var isVisible = $cordovaKeyboard.isVisible();
-		alert(isVisible);
+		//var isVisible = $cordovaKeyboard.isVisible();
+		//alert(isVisible);
 		
 		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
 			$scope.showToast("No se permite numeros negativo");
