@@ -49,9 +49,6 @@ app
 })
 .controller('AnesteciaPresionArterialCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast,ModalService,$cordovaKeyboard) {
 
-	//cordova.plugins.Keyboard.show();
-
-
 	$("input[type=number]").focusin(function() {
 		$('#resBoton').hide();
 
