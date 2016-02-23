@@ -68,9 +68,6 @@ app
 
 	$scope.submit_presion = function(form, info) {
 		$('#resBoton').show();
-
-		//var isVisible = $cordovaKeyboard.isVisible();
-		//alert(isVisible);
 		
 		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
 			$scope.showToast("No se permite numeros negativo");
@@ -85,10 +82,7 @@ app
 		}
 		else{
 			$scope.showToast("Campos Vacios");
-		}
-
-
-		
+		}	
 	}
 
 	$scope.reset = function(){
@@ -215,8 +209,7 @@ app
 
 	function isPositiveInteger(n) {
 	    return parseFloat(n) === n >>> 0;
-	}
-	
+	}	
 	
 })
 .controller('OsmolaridadPlasmaticaCtrl', function($scope, $stateParams, PeopleService,ModalService, $ionicPopup) {
