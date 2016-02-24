@@ -122,28 +122,39 @@ form input.ng-invalid:not(.ng-pristine) {
 .innerTEXT{
     left: 39px;
     position: absolute;
-    top: 43px
+    top: 43px;
 }
 .innerTEXT2{
     left: 145px;
     position: absolute;
-    top: 43px
+    top: 43px;
 }
 .innerTEXT3{
     left: 263px;
     position: absolute;
-    top: 43px
+    top: 43px;
 }
 
 .innerTEXT-1{
     left: 67px;
     position: absolute;
-    top: 43px
+    top: 43px;
 }
 .innerTEXT-2{
     left: 231px;
     position: absolute;
-    top: 43px
+    top: 43px;
+}
+
+.innerTEXT-Top-1{
+    left: 67px;
+    position: absolute;
+    top: 172px;
+}
+.innerTEXT-Top-2{
+    left: 231px;
+    position: absolute;
+    top: 172px;
 }
 
 .infoFormTest input[type="number"] {

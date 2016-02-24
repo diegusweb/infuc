@@ -2,8 +2,61 @@
 <ion-view title="Calcular">
 	<ion-content class="has-header padding form-content">
 	<p>La Dopamina viene en  5ml = 200mg</p>
-	<form name="myForm" novalidate>
-        <div class="list___">
+	<form name="myForm" class="infoFormTest" novalidate="" ng-submit="submit(infoForm, info)">
+
+         <div class="list">
+
+            <div class = "row">
+                <div class = "col text-center">
+                <div id="circle" ng-class="{ success: infoForm.dilusion.$valid, danger: infoForm.dilusion.$invalid }">
+                    <span class="innerTEXT-1">  
+                        <input type="number" name="dilusion" id="dilusion" ng-model="info.dilusion" ng-minlength="1"  required>
+                    </span>
+                </div>
+                Dilusion
+            </div>
+ 
+ 
+                <div class = "col text-center">
+
+             <div id="circle" ng-class="{ success: infoForm.concentracion.$valid, danger: infoForm.concentracion.$invalid }">
+                <span class="innerTEXT-2">  
+                    <input type="number"  name="concentracion" ng-model="info.concentracion" required>
+                </span>
+            </div>
+            Concentracion
+            </div>
+ 
+          </div>
+
+
+            <div class = "row">
+                <div class = "col text-center">
+                <div id="circle" ng-class="{ success: infoForm.peso.$valid, danger: infoForm.peso.$invalid }">
+                    <span class="innerTEXT-Top-1">  
+                        <input type="number" name="peso" id="pesos" ng-model="info.peso" ng-minlength="1"  required>
+                    </span>
+                </div>
+                Peso
+            </div>
+ 
+ 
+                <div class = "col text-center">
+
+             <div id="circle" ng-class="{ success: infoForm.dosis.$valid, danger: infoForm.dosis.$invalid }">
+                <span class="innerTEXT-Top-2">  
+                    <input type="number"  name="dosis" ng-model="info.dosis" required>
+                </span>
+            </div>
+            Dosis
+            </div>
+ 
+          </div>
+
+
+         </div>
+
+        <!--<div class="list___">
             <label class="item item-input">
                 <input type="number" name="dilusion" placeholder="Ingrese Valor" ng-model="info.dilusion" ng-minlength="1" required>
 				<span class="input-label">Dilusion </span>
@@ -29,11 +82,11 @@
             <p ng-show="myForm.username.$error.minlength">* Username must be longer than 5 characters</p>
             <p ng-show="myForm.opacidad.$error.required">* opacidad is required</p>
             <p ng-show="myForm.opacidad.$error.minlength">* opacidad must be longer than 6 characters</p>
-        </div>
+        </div>-->
 		
 		
-		<div style="position: absolute; bottom: 0px; width: 100%">
-			<div style="border:1px solid #ccc; background-color:#fff; ">
+		<div  id="resBoton1" style="position: absolute; bottom: 0px; width: 100%">
+			<div style="border:1px solid #ccc; background-color:#fff; " ng-class="{ ver: resultado != 0, ocultar: resultado == ''}">
 				<div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Resultados</div>
 				<div style="padding:5px;">{{resultado}}</div>
 			</div>
