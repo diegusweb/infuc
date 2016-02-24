@@ -70,7 +70,7 @@ app
 		$('#resBoton').show();
 		
 		if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
-			$scope.showToast("No se permite numeros negativo");
+			$scope.showToast("El dato ingresado es incorrecto");
 		}
 
 		if(form.$valid) {
@@ -293,39 +293,39 @@ app
 		//(140 - edad ) × peso en kg  todo esto dividido entre 
 //72 × creatinina serica 
 
-		console.log($scope.val.single);
 
 		if($scope.val.single == null){
 			$scope.showToast("debe seleccionar un genero");
 		}
+		else{
+			if(form.$valid) {	
+				var peso = parseInt(info.peso);
+				var edad = parseInt(info.edad);
+				var creatina = parseInt(info.creatinina);
+				var genero = parseInt($scope.val.single);
 
-		if(form.$valid) {
-		
-			console.log("asdasdasdas");
-			var peso = parseInt(info.peso);
-			var edad = parseInt(info.edad);
-			var creatina = parseInt(info.creatinina);
-			var genero = parseInt($scope.val.single);
+				if(peso == 0 || edad == 0 || creatina == 0){
+					$scope.showToast("campos vacios");
+				}
+				else{
+					var osm = (140 - edad) * peso / (71*creatina);
 
-			if(peso == 0 || edad == 0 || creatina == 0){
-				$scope.showToast("campos vacios");
+					var res = 0;
+					if(genero == 2)
+						res = osm* 0.85;
+					else
+						res = osm;
+
+					$scope.resultado = res;
+				}
+
 			}
 			else{
-				var osm = (140 - edad) * peso / (71*creatina);
-
-				var res = 0;
-				if(genero == 2)
-					res = osm* 0.85;
-				else
-					res = osm;
-
-				$scope.resultado = res;
-			}
-
+				$scope.showToast("Existen campos Vacios");
+			}	
 		}
-		else{
-			$scope.showToast("Existen campos Vacios");
-		}	
+
+		
 	}
 
 	$scope.showAlert = function() {
