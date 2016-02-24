@@ -2,13 +2,13 @@
 <ion-view title="Calcular">
 	<ion-content class="has-header padding form-content">
 	<p>La Dopamina viene en  5ml = 200mg</p>
-	<form name="infoForm" class="infoFormTest" novalidate="" ng-submit="submit_dopamina(infoForm, info)">
+	<form name="infoForm1" class="infoFormTest" novalidate="" ng-submit="submitDopamina(infoForm1, info)">
 
          <div class="list">
 
             <div class = "row">
                 <div class = "col text-center">
-                <div id="circle" ng-class="{ success: infoForm.dilusion.$valid, danger: infoForm.dilusion.$invalid }">
+                <div id="circle" ng-class="{ success: infoForm1.dilusion.$valid, danger: infoForm1.dilusion.$invalid }">
                     <span class="innerTEXT-1">  
                         <input type="number" name="dilusion" id="dilusion" ng-model="info.dilusion" ng-minlength="1"  required>
                     </span>
@@ -19,7 +19,7 @@
  
                 <div class = "col text-center">
 
-             <div id="circle" ng-class="{ success: infoForm.concentracion.$valid, danger: infoForm.concentracion.$invalid }">
+             <div id="circle" ng-class="{ success: infoForm1.concentracion.$valid, danger: infoForm1.concentracion.$invalid }">
                 <span class="innerTEXT-2">  
                     <input type="number"  name="concentracion" ng-model="info.concentracion" required>
                 </span>
@@ -32,7 +32,7 @@
 
             <div class = "row">
                 <div class = "col text-center">
-                <div id="circle" ng-class="{ success: infoForm.peso.$valid, danger: infoForm.peso.$invalid }">
+                <div id="circle" ng-class="{ success: infoForm1.peso.$valid, danger: infoForm1.peso.$invalid }">
                     <span class="innerTEXT-Top-1">  
                         <input type="number" name="peso" id="pesos" ng-model="info.peso" ng-minlength="1"  required>
                     </span>
@@ -43,7 +43,7 @@
  
                 <div class = "col text-center">
 
-             <div id="circle" ng-class="{ success: infoForm.dosis.$valid, danger: infoForm.dosis.$invalid }">
+             <div id="circle" ng-class="{ success: infoForm1.dosis.$valid, danger: infoForm1.dosis.$invalid }">
                 <span class="innerTEXT-Top-2">  
                     <input type="number"  name="dosis" ng-model="info.dosis" required>
                 </span>
@@ -93,7 +93,7 @@
 			<div style="text-align: center">
 				<div class="row">
 				  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
-				  <div class="col"><button type="button" class="button button-block button-positive">CALCULATEs</button></div>
+				  <div class="col"><button type="submit" class="button button-block button-positive">CALCULATE</button></div>
 				</div>
 			  
 			</div>

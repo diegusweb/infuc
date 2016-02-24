@@ -18,15 +18,13 @@ app
 	});
 	
 	$scope.showAlert = function() {
-		
+
 	   ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
-	$scope.submit_dopamina = function(form, info) {
+	$scope.submitDopamina = function(form, info) {
 		console.log("ssssss232");
 		$('#resBoton1').show();
-
-		console.log("ssssss");
 
 		/*if(!isPositiveInteger(parseInt(info.dilusion)) || !isPositiveInteger(parseInt(info.sistolica)) ){
 			$scope.showToast("El dato ingresado es incorrecto");
@@ -53,7 +51,6 @@ app
 			
 			$scope.resultado = res_final + " Dopamina en 100ml de DA" ;
 
-			$scope.resultado = pam;
 		}
 		else{
 			$scope.showToast("Campos Vacios");
