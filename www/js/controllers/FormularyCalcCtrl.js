@@ -1,13 +1,66 @@
 app
 .controller('AnesteciaDopaminaCtrl', function($scope, $stateParams, PeopleService,$location,$ionicPopup,ModalService) {
-	$scope.info = [];
-	$scope.resultado=0;
+	$scope.resultado = "";
+
+	$scope.info = {
+		dilusion: '',
+		concentracion: '',
+		peso: '',
+		dosis : '' 
+	};  
+
+	$("input[type=number]").focusin(function() {
+		$('#resBoton1').hide();
+	});
+
+	$("input[type=number]").focusout(function() {
+		$('#resBoton1').show();
+	});
 	
 	$scope.showAlert = function() {
+		
 	   ModalService.alertModal("Error En Datos","No se permite numeros negativo");
 	 };
 
-	$scope.submit = function(data) {
+	$scope.submit_dopamina = function(form, info) {
+		console.log("ssssss232");
+		$('#resBoton1').show();
+
+		console.log("ssssss");
+
+		/*if(!isPositiveInteger(parseInt(info.dilusion)) || !isPositiveInteger(parseInt(info.sistolica)) ){
+			$scope.showToast("El dato ingresado es incorrecto");
+		}*/
+
+		if(form.$valid) {
+			console.log(info);
+		//La Dopamina viene en  5ml = 200mg	
+		
+			var res1_mg = 0;
+			res1_mg = (200 * 1) / 5; //resultado en mg
+			
+			console.log("res1_mg "+res1_mg);
+			//calculo de gamas
+			var res2_gamas = 0;
+			res2_gamas = (res1_mg * 1000) /1; 
+			
+			console.log("res2_gamas "+res2_gamas);
+			
+			var res_final = 0;
+			res_final = parseInt(info.gamas)/res2_gamas; //Dopamina en 100 ml de DA 
+			
+			console.log("info.gamas "+parseInt(info.gamas));
+			
+			$scope.resultado = res_final + " Dopamina en 100ml de DA" ;
+
+			$scope.resultado = pam;
+		}
+		else{
+			$scope.showToast("Campos Vacios");
+		}	
+	}	
+
+	/*$scope.submit = function(data) {
 	
 		console.log(data);
 		//La Dopamina viene en  5ml = 200mg
@@ -31,10 +84,10 @@ app
 		$scope.resultado = res_final + " Dopamina en 100ml de DA" ;
 		
        //$scope.showAlert();
-	};
+	};*/
 	
 	$scope.reset = function(){
-
+console.log("ssssss232");
 		ModalService.resetModal().then(
 			function( response ) {
 				  $scope.info.username = null;
@@ -257,7 +310,7 @@ app
 	
 })
 .controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService, ModalService, ionicToast, $ionicPopup) {
-	
+
 	$("input[type=number]").focusin(function() {
 		$('#resBoton6').hide();
 
@@ -290,7 +343,7 @@ app
   //$scope.countries_text_multiple = 'Choose countries';
   $scope.val =  {single: null, multiple: null};
 
-	$scope.submit = function(form, info) {
+	$scope.submit_creatina = function(form, info) {
 
 		if($scope.val.single == null){
 			$scope.showToast("debe seleccionar un genero");

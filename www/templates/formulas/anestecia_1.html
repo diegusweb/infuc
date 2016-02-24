@@ -2,7 +2,7 @@
 <ion-view title="Calcular">
 	<ion-content class="has-header padding form-content">
 	<p>La Dopamina viene en  5ml = 200mg</p>
-	<form name="myForm" class="infoFormTest" novalidate="" ng-submit="submit(infoForm, info)">
+	<form name="infoForm" class="infoFormTest" novalidate="" ng-submit="submit_dopamina(infoForm, info)">
 
          <div class="list">
 
@@ -93,7 +93,7 @@
 			<div style="text-align: center">
 				<div class="row">
 				  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
-				  <div class="col"><button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(info)">CALCULATE</button></div>
+				  <div class="col"><button type="button" class="button button-block button-positive">CALCULATEs</button></div>
 				</div>
 			  
 			</div>
