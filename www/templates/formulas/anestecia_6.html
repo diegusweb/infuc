@@ -27,7 +27,7 @@
 
             <div class = "row">
                 <div class = "col text-center">
-                <div id="circle">
+                <div id="circle" ng-class="{ success: infoForm.peso.$valid, danger: infoForm.peso.$invalid }">
                     <span class="innerTEXT">  
                         <input type="number" name="peso" id="pesos" ng-model="info.peso" ng-minlength="1"  required>
                     </span>
@@ -38,7 +38,7 @@
  
                 <div class = "col text-center">
 
-             <div id="circle">
+             <div id="circle" ng-class="{ success: infoForm.edad.$valid, danger: infoForm.edad.$invalid }">
                 <span class="innerTEXT2">  
                     <input type="number"  name="edad" ng-model="info.edad" required>
                 </span>
@@ -48,7 +48,7 @@
 
              <div class = "col text-center">
 
-             <div id="circle">
+             <div id="circle" ng-class="{ success: infoForm.creatinina.$valid, danger: infoForm.creatinina.$invalid }">
                 <span class="innerTEXT3">  
                     <input type="number"  name="creatinina" ng-model="info.creatinina" required>
                 </span>
