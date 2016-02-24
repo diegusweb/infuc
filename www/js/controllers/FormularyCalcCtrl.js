@@ -257,11 +257,18 @@ app
 	
 })
 .controller('AclaramientoCreatininaCtrl', function($scope, $stateParams, PeopleService, ModalService, ionicToast, $ionicPopup) {
-	//$scope.info = [];
+	
+	$("input[type=number]").focusin(function() {
+		$('#resBoton6').hide();
 
-	$("#pesos").focus();
+	});
 
-	//http://codepen.io/mhartington/pen/CImqy
+	$("input[type=number]").focusout(function() {
+		$('#resBoton6').show();
+
+	});
+
+	$scope.resultado = "";
 
 	  $scope.info = {
 	    edad: '',
@@ -270,7 +277,9 @@ app
 	    genero:''    
 	  };  
 
-	  $scope.genero = [{id: 1, text: 'Masculino', checked: false, icon: null},{id: 2, text: 'Femenino', checked: false, icon: null}];
+	  $scope.genero = [
+	  {id: 1, text: 'Masculino', checked: false, icon: null},
+	  {id: 2, text: 'Femenino', checked: false, icon: null}];
 
 	  /*$scope.countries = [
     {id: 1, text: 'USA', checked: false, icon: null}, 
@@ -281,18 +290,7 @@ app
   //$scope.countries_text_multiple = 'Choose countries';
   $scope.val =  {single: null, multiple: null};
 
-
-	  
-
 	$scope.submit = function(form, info) {
-
-
-		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
-			$scope.showAlert();
-		}*/
-		//(140 - edad ) × peso en kg  todo esto dividido entre 
-//72 × creatinina serica 
-
 
 		if($scope.val.single == null){
 			$scope.showToast("debe seleccionar un genero");
@@ -323,9 +321,7 @@ app
 			else{
 				$scope.showToast("Existen campos Vacios");
 			}	
-		}
-
-		
+		}	
 	}
 
 	$scope.showAlert = function() {

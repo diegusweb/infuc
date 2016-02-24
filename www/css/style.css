@@ -152,3 +152,6 @@ form input.ng-invalid:not(.ng-pristine) {
     font-size: 30px;
     width: 50px;
 }
+
+.ver{ display:inherit; }
+.ocultar{ display:none; }
