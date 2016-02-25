@@ -23,7 +23,6 @@ app
 	 };
 
 	$scope.submitDopamina = function(form, info) {
-		console.log("ssssss232");
 		$('#resBoton1').show();
 
 		/*if(!isPositiveInteger(parseInt(info.dilusion)) || !isPositiveInteger(parseInt(info.sistolica)) ){
@@ -57,34 +56,9 @@ app
 		}	
 	}	
 
-	/*$scope.submit = function(data) {
-	
-		console.log(data);
-		//La Dopamina viene en  5ml = 200mg
-		
-		
-		var res1_mg = 0;
-		res1_mg = (200 * 1) / 5; //resultado en mg
-		
-		console.log("res1_mg "+res1_mg);
-		//calculo de gamas
-		var res2_gamas = 0;
-		res2_gamas = (res1_mg * 1000) /1; 
-		
-		console.log("res2_gamas "+res2_gamas);
-		
-		var res_final = 0;
-		res_final = parseInt(data.gamas)/res2_gamas; //Dopamina en 100 ml de DA 
-		
-		console.log("data.gamas "+parseInt(data.gamas));
-		
-		$scope.resultado = res_final + " Dopamina en 100ml de DA" ;
-		
-       //$scope.showAlert();
-	};*/
 	
 	$scope.reset = function(){
-console.log("ssssss232");
+
 		ModalService.resetModal().then(
 			function( response ) {
 				  $scope.info.username = null;
