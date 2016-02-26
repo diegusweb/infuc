@@ -133,10 +133,55 @@ app
 	
 	
 })
-.controller('AnesteciaNoradrenalinaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
-	$scope.info = [];
+.controller('AnesteciaNoradrenalinaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup,ionicToast) {
+	$scope.resultado = "";
 
-	$scope.submit = function(data) {
+	$scope.info = {
+		diluir: '',
+		ampollas: '',
+		peso: '',
+		dosis : '' 
+	};  
+
+	$("input[type=number]").focusin(function() {
+		$('#resBoton1').hide();
+	});
+
+	$("input[type=number]").focusout(function() {
+		$('#resBoton1').show();
+	});
+
+	$scope.submit_adrenalina = function(form, info) {
+		$('#resBoton').show();
+		
+		/*if(!isPositiveInteger(parseInt(info.diastolica)) || !isPositiveInteger(parseInt(info.sistolica)) ){
+			$scope.showToast("El dato ingresado es incorrecto");
+		}*/
+
+		if(form.$valid) {
+			var peso = parseInt(data.peso);
+			var diluir = parseInt(data.diluir);
+			var ampollas = parseInt(data.ampollas) * 4;
+			var dosis = parseFloat(data.dosis);
+
+			var res1 = (ampollas/diluir) * 1000;
+			var res2 = res1/peso;
+			console.log("res2 "+res2);
+			var res3 = res2/60;  //60min
+			console.log("res3 "+res3);
+			//Y por ultimo te dicen a q dosis quieren darle
+			var res4 = dosis/res3;
+			console.log("dosis "+dosis);
+			console.log("res4 "+res4);
+
+			$scope.resultado = res4;
+		}
+		else{
+			$scope.showToast("Campos Vacios");
+		}	
+	}
+
+	$scope.submit__ = function(data) {
 		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
 			$scope.showAlert();
 		}*/
@@ -182,6 +227,11 @@ app
 	function isPositiveInteger(n) {
 	    return parseFloat(n) === n >>> 0;
 	}
+
+	$scope.showToast = function(ms){
+	 	var s = ionicToast.show(ms, 'bottom',false, 2000);
+	 	console.log(s);
+	};
 	
 	
 })
