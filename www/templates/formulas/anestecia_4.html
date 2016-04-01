@@ -2,7 +2,60 @@
 <ion-view title="Calcular">
 	<ion-content class="has-header padding form-content">
 
-	<form name="myForm" novalidate>
+	<form name="infoForm1" class="infoFormTest" novalidate="" ng-submit="submitAdrenalina(infoForm1, info)">
+
+ <div class="list">
+
+            <div class = "row">
+                <div class = "col text-center">
+                <div id="circle" ng-class="{ success: infoForm1.peso.$valid, danger: infoForm1.peso.$invalid }">
+                    <span class="innerTEXT-1">  
+                        <input type="number" name="peso" id="peso" ng-model="info.peso" ng-minlength="1"  required>
+                    </span>
+                </div>
+                peso
+            </div>
+ 
+ 
+                <div class = "col text-center">
+
+             <div id="circle" ng-class="{ success: infoForm1.diluir.$valid, danger: infoForm1.diluir.$invalid }">
+                <span class="innerTEXT-2">  
+                    <input type="number"  name="diluir" ng-model="info.diluir" required>
+                </span>
+            </div>
+            diluir
+            </div>
+ 
+          </div>
+
+
+            <div class = "row">
+                <div class = "col text-center">
+                <div id="circle" ng-class="{ success: infoForm1.ampollas.$valid, danger: infoForm1.ampollas.$invalid }">
+                    <span class="innerTEXT-Top-1">  
+                        <input type="number" name="ampollas" id="ampollas" ng-model="info.ampollas" ng-minlength="1"  required>
+                    </span>
+                </div>
+                ampollas
+            </div>
+ 
+ 
+                <div class = "col text-center">
+
+             <div id="circle" ng-class="{ success: infoForm1.dosis.$valid, danger: infoForm1.dosis.$invalid }">
+                <span class="innerTEXT-Top-2">  
+                    <input type="number"  name="dosis" ng-model="info.dosis" required>
+                </span>
+            </div>
+            Dosis
+            </div>
+ 
+          </div>
+
+
+         </div>
+
        <!-- <div class="list___">
             <label class="item item-input">
                 <input type="number" name="peso" placeholder="Ingrese Valor" ng-model="info.peso" ng-minlength="1" required>
@@ -22,27 +75,22 @@
             </label>
 		
         </div>-->
-        <div class="padding">
-            <p ng-show="myForm.diastolica.$error.required">* diastolica es requerido</p>
-            <p ng-show="myForm.diastolica.$error.minlength">* diastolica must be longer than 5 characters</p>
-            <p ng-show="myForm.sistolica.$error.required">* sistolica es requerido</p>
-            <p ng-show="myForm.sistolica.$error.minlength">* sistolica must be longer than 6 characters</p>
+
+		
+		
+        <div  id="resBoton1" style="position: absolute; bottom: 0px; width: 100%">
+            <div style="border:1px solid #ccc; background-color:#fff; " ng-class="{ ver: resultado != 0, ocultar: resultado == ''}">
+                <div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Resultados</div>
+                <div style="padding:5px;">{{resultado}}</div>
+            </div>
+            <div style="text-align: center">
+                <div class="row">
+                  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
+                  <div class="col"><button type="submit" class="button button-block button-positive">CALCULATE</button></div>
+                </div>
+              
+            </div>
         </div>
-		
-		
-		<div style="position: absolute; bottom: 0px; width: 100%">
-			<div style="border:1px solid #ccc; background-color:#fff; ">
-				<div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Resultados</div>
-				<div style="padding:5px;">{{resultado}}</div>
-			</div>
-			<div style="text-align: center">
-				<div class="row">
-				  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
-				  <div class="col"><button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(info)">CALCULATE</button></div>
-				</div>
-			  
-			</div>
-		</div>
 
     </form>
       </ion-content>
