@@ -159,10 +159,10 @@ app
 		}*/
 
 		if(form.$valid) {
-			var peso = parseInt(data.peso);
-			var diluir = parseInt(data.diluir);
-			var ampollas = parseInt(data.ampollas) * 4;
-			var dosis = parseFloat(data.dosis);
+			var peso = parseInt(info.peso);
+			var diluir = parseInt(info.diluir);
+			var ampollas = parseInt(info.ampollas) * 4;
+			var dosis = parseFloat(info.dosis);
 
 			var res1 = (ampollas/diluir) * 1000;
 			var res2 = res1/peso;
@@ -236,9 +236,27 @@ app
 	
 })
 .controller('AnesteciaAdrenalinaCtrl', function($scope, $stateParams, PeopleService,$ionicPopup) {
-	$scope.info = [];
+	$scope.info = {
+		diluir: '',
+		ampollas: '',
+		peso: '',
+		dosis : '' 
+	};  
 
-	$scope.submit = function(data) {
+	$("input[type=number]").focusin(function() {
+		$('#resBoton1').hide();
+	});
+
+	$("input[type=number]").focusout(function() {
+		$('#resBoton1').show();
+	});
+	
+	$scope.showAlert = function() {
+
+	   ModalService.alertModal("Error En Datos","No se permite numeros negativo");
+	 };
+
+	$scope.submitAdrenalina = function(form, info) {
 		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
 			$scope.showAlert();
 		}*/
