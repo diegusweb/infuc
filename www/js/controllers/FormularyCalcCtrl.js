@@ -257,9 +257,7 @@ app
 	 };
 
 	$scope.submitAdrenalina = function(form, info) {
-		/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
-			$scope.showAlert();
-		}*/
+
 		var peso = parseInt(info.peso);
 		var diluir = parseInt(info.diluir);
 		var ampollas = parseInt(info.ampollas) * 1;
