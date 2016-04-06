@@ -2,8 +2,60 @@
 <ion-view title="Calcular">
 	<ion-content class="has-header padding form-content">
 
-	<form name="myForm" novalidate>
-        <div class="list___">
+	<form name="myForm" ng-submit="submitAdrenalina(infoForm1, info)" novalidate>
+
+ <div class="list">
+
+            <div class = "row">
+                <div class = "col text-center">
+                <div id="circle" ng-class="{ success: infoForm1.na.$valid, danger: infoForm1.na.$invalid }">
+                    <span class="innerTEXT-1">  
+                        <input type="number" name="na" id="na" ng-model="info.na" ng-minlength="1"  required>
+                    </span>
+                </div>
+                Ingrese Na
+            </div>
+ 
+ 
+                <div class = "col text-center">
+
+             <div id="circle" ng-class="{ success: infoForm1.glucosa.$valid, danger: infoForm1.glucosa.$invalid }">
+                <span class="innerTEXT-2">  
+                    <input type="number"  name="glucosa" ng-model="info.glucosa" required>
+                </span>
+            </div>
+            Valor de glucosa
+            </div>
+ 
+          </div>
+
+
+            <div class = "row">
+                <div class = "col text-center">
+                <div id="circle" ng-class="{ success: infoForm1.k.$valid, danger: infoForm1.k.$invalid }">
+                    <span class="innerTEXT-Top-1">  
+                        <input type="number" name="k" id="k" ng-model="info.k" ng-minlength="1"  required>
+                    </span>
+                </div>
+                Valor de K
+            </div>
+ 
+ 
+                <div class = "col text-center">
+
+             <div id="circle" ng-class="{ success: infoForm1.bun.$valid, danger: infoForm1.bun.$invalid }">
+                <span class="innerTEXT-Top-2">  
+                    <input type="number"  name="bun" ng-model="info.bun" required>
+                </span>
+            </div>
+            Valor de bun
+            </div>
+ 
+          </div>
+
+
+         </div>
+        <!--<div class="list___">
             <label class="item item-input">
                 <input type="number" name="na" placeholder="Ingrese Valor" ng-model="info.na" ng-minlength="1" required>
 				<span class="input-label">Valor de Na </span>
@@ -27,22 +79,22 @@
             <p ng-show="myForm.na.$error.minlength">* diastolica must be longer than 5 characters</p>
             <p ng-show="myForm.k.$error.required">* k es requerido</p>
             <p ng-show="myForm.k.$error.minlength">* k must be longer than 6 characters</p>
+        </div>-->
+		
+		
+		<div  id="resBoton1" style="position: absolute; bottom: 0px; width: 100%">
+            <div style="border:1px solid #ccc; background-color:#fff; " ng-class="{ ver: resultado != 0, ocultar: resultado == ''}">
+                <div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Resultados</div>
+                <div style="padding:5px;">{{resultado}}</div>
+            </div>
+            <div style="text-align: center">
+                <div class="row">
+                  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
+                  <div class="col"><button type="submit" class="button button-block button-positive">CALCULATE</button></div>
+                </div>
+              
+            </div>
         </div>
-		
-		
-		<div style="position: absolute; bottom: 0px; width: 100%">
-			<div style="border:1px solid #ccc; background-color:#fff; ">
-				<div style="background-color:#F1F1F1; padding:5px; border-bottom:1px solid #ccc;">Resultados</div>
-				<div style="padding:5px;">{{resultado}}</div>
-			</div>
-			<div style="text-align: center">
-				<div class="row">
-				  <div class="col"><button type="button" class="button button-block button-assertive"  ng-click="reset()">CLEAR</button></div>
-				  <div class="col"><button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(info)">CALCULATE</button></div>
-				</div>
-			  
-			</div>
-		</div>
 
     </form>
       </ion-content>
