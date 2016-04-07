@@ -346,8 +346,8 @@ app
 		$scope.reset = function() {
 			ModalService.resetModal().then(
 				function(response) {
-					$scope.info.Na = null;
-					$scope.info.glucosa = null;
+					$scope.info.na = null;
+					$scope.info.glunosa = null;
 					$scope.info.bun = null;
 					$scope.info.k = null;
 				},
