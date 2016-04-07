@@ -300,29 +300,48 @@ app
 
 	})
 	.controller('OsmolaridadPlasmaticaCtrl', function($scope, $stateParams, PeopleService, ModalService, $ionicPopup) {
-		$scope.info = [];
+		$scope.info = {
+			na: '',
+			bun: '',
+			k: '',
+			glucosa: ''
+		};
 
-		$scope.submit = function(data) {
-			/*if(!isPositiveInteger(parseInt(data.diastolica)) || !isPositiveInteger(parseInt(data.sistolica)) ){
-				$scope.showAlert();
-			}*/
-			//Osm= 2 (Na + k ) + glucosa / 18  + BUN / 2,8 
-			console.log(data);
-			var Na = parseInt(data.na);
-			var bun = parseInt(data.bun);
-			var k = parseInt(data.k);
-			var glucosa = parseInt(data.glucosa);
+		$("input[type=number]").focusin(function() {
+			$('#resBoton1').hide();
+		});
 
-			console.log(Na + k);
-
-			var osm = 2 * (Na + k) + glucosa / 18 + bun / 2.8;
-
-			$scope.resultado = osm;
-		}
+		$("input[type=number]").focusout(function() {
+			$('#resBoton1').show();
+		});
 
 		$scope.showAlert = function() {
-			ModalService.alertModal("demo", "modalll");
+
+			ModalService.alertModal("Error En Datos", "No se permite numeros negativo");
 		};
+
+		$scope.submitOsmolaridadPlasmatica= function(form, info) {
+			$('#resBoton1').show();
+
+			if (form.$valid) {
+				console.log(info);
+				var Na = parseInt(info.na);
+				var bun = parseInt(info.bun);
+				var k = parseInt(info.k);
+				var glucosa = parseInt(info.glucosa);
+
+				console.log(Na + k);
+
+				var osm = 2 * (Na + k) + glucosa / 18 + bun / 2.8;
+
+				$scope.resultado = osm;
+			}
+			else{
+				$scope.showToast("Campos Vacios");
+			}
+
+		}
+
 
 		$scope.reset = function() {
 			ModalService.resetModal().then(
