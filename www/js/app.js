@@ -26,14 +26,12 @@ var app = angular.module('starter', ['ionic','ionic-toast', 'ngMessages','ngCord
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
+  $stateProvider.state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
 
   /*.state('app.search', {
     url: '/search',
@@ -70,7 +68,6 @@ var app = angular.module('starter', ['ionic','ionic-toast', 'ngMessages','ngCord
        }
      }   
   })
-
   .state('app.anestecia_1', {
     url: "/anestecia_1",
     views: {
@@ -78,8 +75,7 @@ var app = angular.module('starter', ['ionic','ionic-toast', 'ngMessages','ngCord
         templateUrl: 'templates/formulas/anestecia_1.html',
         controller: 'AnesteciaDopaminaCtrl'
       }
-    }
-    
+    }   
   })
   .state('app.anestecia_2', {
     url: "/anestecia_2",
